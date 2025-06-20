@@ -1,0 +1,71 @@
+@startuml VoiceNotion Authentication Sequence
+!theme plain
+
+' Force 4:3 aspect ratio with proper spacing
+scale 800*600
+
+' Styling to match the example
+skinparam sequenceArrowThickness 1
+skinparam roundcorner 0
+skinparam maxmessagesize 50
+skinparam responseMessageBelowArrow true
+skinparam sequenceMessageAlign left
+skinparam lifelineStrategy solid
+skinparam participantPadding 20
+skinparam boxPadding 10
+skinparam sequenceReferenceHeaderBackgroundColor white
+skinparam sequenceReferenceBackgroundColor white
+skinparam sequenceReferenceBorderColor gray
+skinparam sequenceGroupHeaderFontStyle normal
+skinparam sequenceGroupBorderColor gray
+skinparam sequenceGroupBackgroundColor white
+
+' Title in a box
+box "VoiceNotion Authentication" #white
+participant "Utilisateur" as User
+participant "Application" as App
+participant "Supabase" as Supabase
+participant "Google Auth" as Google #lightyellow
+end box
+
+' Main sequence
+User -> App: Accéder à l'écran de connexion
+activate App
+
+' Alternative authentication methods
+alt Email/Password
+    User -> App: Entrer email et mot de passe
+    App -> Supabase: signInWithPassword(email, password)
+    activate Supabase
+    
+    Supabase --> App: Retour session ou erreur
+    deactivate Supabase
+    
+else Google Authentication
+    User -> App: Cliquer sur "Connexion avec Google"
+    App -> Google: Redirection OAuth
+    activate Google
+    
+    Google -> User: Demande d'autorisation
+    User -> Google: Autoriser
+    Google --> App: Code d'autorisation
+    
+    App -> Supabase: signInWithOAuth(provider: 'google', code)
+    activate Supabase
+    
+    Supabase --> App: Retour session
+    deactivate Supabase
+    deactivate Google
+end
+
+' Result handling
+alt [Authentification réussie]
+    App -> App: Stocker la session
+    App --> User: Redirection vers l'écran d'accueil
+else [Échec d'authentification]
+    App --> User: Afficher message d'erreur
+end
+
+deactivate App
+
+@enduml 

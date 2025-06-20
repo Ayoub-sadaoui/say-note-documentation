@@ -1,0 +1,69 @@
+@startuml Agile and Design Thinking Integration
+!theme plain
+skinparam backgroundColor white
+skinparam dpi 300
+skinparam defaultFontName Arial
+skinparam ArrowColor #333333
+skinparam shadowing false
+
+' Define the basic components
+rectangle "Approche Intégrée VoiceNotion" {
+  ' Scrum Cycle
+  circle "Sprint\nPlanning" as planning #lightblue
+  circle "Daily\nStand-up" as daily #lightblue
+  circle "Sprint\nReview" as review #lightblue
+  circle "Sprint\nRetro" as retro #lightblue
+  
+  ' Design Thinking
+  ellipse "Empathie" as empathy #lightgreen
+  ellipse "Définition" as define #lightgreen
+  ellipse "Idéation" as ideate #lightgreen
+  ellipse "Prototypage" as prototype #lightgreen
+  ellipse "Test" as test #lightgreen
+  
+  ' Product Backlog
+  database "Product\nBacklog" as backlog #lightyellow
+
+  ' Sprint Backlog
+  cloud "Sprint\nBacklog" as sprintBacklog #lightyellow
+  
+  ' Increment
+  package "Incrément\nde produit" as increment #pink
+}
+
+' Position the elements
+planning --> daily
+daily --> review
+review --> retro
+retro --> planning
+
+empathy --> define
+define --> ideate
+ideate --> prototype
+prototype --> test
+test ..> empathy : Cycle\nitératif
+
+' Show relationships
+backlog --> planning : Priorisation
+planning --> sprintBacklog : Sélection
+sprintBacklog --> daily : Implémentation
+daily --> review : Travail\nquotidien
+review --> increment : Démonstration
+review --> retro : Réflexion
+retro --> planning : Amélioration\ncontinue
+
+empathy --> backlog : Besoins\nutilisateurs
+define --> backlog : Problèmes\ndéfinis
+ideate --> planning : Solutions\npotentielles
+prototype --> sprintBacklog : Prototypes\nrapides
+test --> review : Retours\nutilisateurs
+increment --> test : Validation
+
+note top
+  <b>Intégration Scrum + Design Thinking</b>
+  La méthodologie VoiceNotion combine la structure
+  itérative de Scrum (cycles bleus) avec l'approche
+  centrée utilisateur du Design Thinking (vert).
+end note
+
+@enduml 

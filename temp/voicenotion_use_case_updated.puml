@@ -1,0 +1,98 @@
+@startuml VoiceNotion Use Case Diagram
+!theme plain
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam handwritten false
+skinparam actorStyle awesome
+skinparam linetype ortho
+skinparam nodesep 80
+skinparam ranksep 100
+
+' Define a more vertical layout
+left to right direction
+
+' Actors
+actor "Utilisateur non authentifié" as UnauthUser
+actor "Utilisateur authentifié" as AuthUser
+actor "API Gemini" as GeminiAPI #lightblue
+actor "Service de stockage" as StorageService #lightblue
+
+' Draw packages with modifications for vertical layout
+rectangle "VoiceNotion" {
+  ' Account Management
+  package "Gestion du compte" {
+    usecase "S'inscrire" as Register
+    usecase "Se connecter" as Login
+    usecase "Modifier profil" as EditProfile
+  }
+  
+  ' Note Management - Removed folder references
+  package "Gestion des notes" {
+    usecase "Créer note" as CreateNote
+    usecase "Éditer note" as EditNote
+    usecase "Supprimer note" as DeleteNote
+    usecase "Catégoriser avec tags" as OrganizeTags
+    usecase "Épingler note" as PinNote
+  }
+  
+  ' Voice Interaction
+  package "Interaction vocale" {
+    usecase "Dicter contenu" as DictateContent
+    usecase "Commandes de formatage" as FormatCommands
+    usecase "Navigation par voix" as VoiceNavigation
+    usecase "Créer des blocs" as CreateBlocks
+  }
+  
+  ' Structured Editing
+  package "Édition structurée" {
+    usecase "Manipulation des blocs" as ManipulateBlocks
+    usecase "Formatage du texte" as FormatText
+    usecase "Insertion d'éléments riches" as InsertRichElements
+  }
+  
+  ' Search and Filter
+  package "Recherche et filtrage" {
+    usecase "Recherche textuelle" as TextSearch
+    usecase "Filtrage par tags" as FilterByTags
+    usecase "Filtrage par date" as FilterByDate
+  }
+  
+  ' Export - Removed sharing and collaboration package, kept only export
+  usecase "Exporter note" as ExportNote
+}
+
+' Relationships - Unauthenticated User
+UnauthUser --> Register
+UnauthUser --> Login
+
+' Relationships - Authenticated User
+AuthUser --> EditProfile
+AuthUser --> CreateNote
+AuthUser --> EditNote
+AuthUser --> DeleteNote
+AuthUser --> OrganizeTags
+AuthUser --> PinNote
+AuthUser --> DictateContent
+AuthUser --> FormatCommands
+AuthUser --> VoiceNavigation
+AuthUser --> CreateBlocks
+AuthUser --> ManipulateBlocks
+AuthUser --> FormatText
+AuthUser --> InsertRichElements
+AuthUser --> TextSearch
+AuthUser --> FilterByTags
+AuthUser --> FilterByDate
+AuthUser --> ExportNote
+
+' Relationships - Gemini API
+GeminiAPI --> DictateContent
+GeminiAPI --> FormatCommands
+GeminiAPI --> VoiceNavigation
+GeminiAPI --> CreateBlocks
+
+' Relationships - Storage Service
+StorageService --> CreateNote
+StorageService --> EditNote
+StorageService --> DeleteNote
+
+@enduml 

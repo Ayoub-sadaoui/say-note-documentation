@@ -1,0 +1,146 @@
+% VoiceNotion Voice Commands Reference
+% This file can be included in the main LaTeX document
+
+\chapter{Voice Command Reference}
+
+\section{Basic Voice Commands}
+
+\begin{longtable}{p{0.25\textwidth}p{0.5\textwidth}p{0.25\textwidth}}
+\toprule
+\textbf{Command} & \textbf{Description} & \textbf{Example} \\
+\midrule
+\endhead
+
+% Text Input Commands
+"New note" & Creates a new note & "New note" \\
+"Title [text]" & Sets the title of the current note & "Title meeting minutes" \\
+"Add text [content]" & Adds a paragraph block with the specified text & "Add text Remember to follow up with the team" \\
+\midrule
+
+% Block Creation Commands
+"New paragraph" & Creates a new paragraph block & "New paragraph" \\
+"Heading [level] [text]" & Creates a heading of specified level (1-6) & "Heading 2 Project Goals" \\
+"Bullet list" & Starts a bullet list & "Bullet list" \\
+"Add bullet [text]" & Adds a bullet point to an existing list & "Add bullet Schedule meeting" \\
+"Numbered list" & Starts a numbered list & "Numbered list" \\
+"Add item [text]" & Adds an item to an existing numbered list & "Add item Contact suppliers" \\
+"Checklist" & Creates a to-do list with checkboxes & "Checklist" \\
+"Add task [text]" & Adds a task to an existing checklist & "Add task Submit report" \\
+"Quote [text]" & Creates a block quote & "Quote This is important" \\
+"Code block [language]" & Creates a code block with optional language specification & "Code block javascript" \\
+"Toggle [title]" & Creates a toggle block with the specified title & "Toggle Implementation details" \\
+\midrule
+
+% Text Formatting Commands
+"Bold [text]" & Makes selected text or next dictated text bold & "Bold important point" \\
+"Italic [text]" & Makes selected text or next dictated text italic & "Italic for emphasis" \\
+"Underline [text]" & Underlines selected text or next dictated text & "Underline deadline" \\
+"Strikethrough [text]" & Applies strikethrough to selected text or next dictated text & "Strikethrough old version" \\
+"Link [text] to [URL]" & Creates a hyperlink & "Link documentation to https://docs.example.com" \\
+"Code [text]" & Formats text as inline code & "Code console.log()" \\
+\midrule
+
+% Selection and Navigation
+"Select last paragraph" & Selects the most recently created paragraph & "Select last paragraph" \\
+"Select line" & Selects the current line & "Select line" \\
+"Select all" & Selects all content in the current note & "Select all" \\
+"Go to start" & Moves cursor to the beginning of the note & "Go to start" \\
+"Go to end" & Moves cursor to the end of the note & "Go to end" \\
+\midrule
+
+% Editing Commands
+"Delete [selection]" & Deletes the specified selection & "Delete last paragraph" \\
+"Clear selection" & Clears the current selection & "Clear selection" \\
+"Replace [selection] with [text]" & Replaces specified text with new content & "Replace last sentence with updated information" \\
+"Cut selection" & Cuts the current selection & "Cut selection" \\
+"Copy selection" & Copies the current selection & "Copy selection" \\
+"Paste" & Pastes copied content & "Paste" \\
+\midrule
+
+% Block Manipulation
+"Move block up" & Moves the current block up one position & "Move block up" \\
+"Move block down" & Moves the current block down one position & "Move block down" \\
+"Indent block" & Indents the current block to create nesting & "Indent block" \\
+"Outdent block" & Reduces indentation of the current block & "Outdent block" \\
+"Convert to [block type]" & Converts the current block to a different type & "Convert to heading 3" \\
+\midrule
+
+% Note Management
+"Save note" & Saves the current note & "Save note" \\
+"Rename note to [name]" & Renames the current note & "Rename note to Project Ideas" \\
+"Delete note" & Deletes the current note after confirmation & "Delete note" \\
+"Share note" & Opens sharing options for the current note & "Share note" \\
+"Export as [format]" & Exports the note in the specified format (PDF, HTML, etc.) & "Export as PDF" \\
+\midrule
+
+% Undo/Redo
+"Undo" & Undoes the last action & "Undo" \\
+"Redo" & Redoes the previously undone action & "Redo" \\
+
+\bottomrule
+\caption{VoiceNotion Voice Commands}
+\label{tab:voice_commands}
+\end{longtable}
+
+\section{Advanced Voice Commands}
+
+\begin{longtable}{p{0.25\textwidth}p{0.5\textwidth}p{0.25\textwidth}}
+\toprule
+\textbf{Command} & \textbf{Description} & \textbf{Example} \\
+\midrule
+\endhead
+
+% Advanced Formatting
+"Format [selection] as [style]" & Applies specified format to selection & "Format selection as bold italic" \\
+"Set text color to [color]" & Changes text color & "Set text color to blue" \\
+"Set background to [color]" & Changes background color of selection & "Set background to yellow" \\
+\midrule
+
+% Multi-step Commands
+"Create section with title [title]" & Creates a section with a heading and empty paragraph & "Create section with title Literature Review" \\
+"Add bullet list with [item1], [item2]" & Creates a bullet list with multiple items & "Add bullet list with apples, oranges, bananas" \\
+"Insert table with [rows] rows and [columns] columns" & Creates a table with specified dimensions & "Insert table with 3 rows and 4 columns" \\
+\midrule
+
+% Media and Attachments
+"Add image [description]" & Opens image selector with optional description & "Add image project logo" \\
+"Insert link to file" & Opens file selector to link to a file & "Insert link to file" \\
+"Embed video" & Opens video embedding interface & "Embed video" \\
+\midrule
+
+% Template Commands
+"Apply template [template name]" & Applies a saved template to the current note & "Apply template meeting notes" \\
+"Save as template named [name]" & Saves current note structure as a template & "Save as template named weekly report" \\
+\midrule
+
+% Organization Commands
+"Add tag [tag name]" & Adds a tag to the current note & "Add tag important" \\
+"Move to folder [folder name]" & Moves the note to the specified folder & "Move to folder Projects" \\
+"Create folder [folder name]" & Creates a new folder & "Create folder Research" \\
+
+\bottomrule
+\caption{Advanced VoiceNotion Voice Commands}
+\label{tab:advanced_commands}
+\end{longtable}
+
+\section{Context-Specific Commands}
+
+The following commands are context-sensitive and their behavior depends on the current state of the editor.
+
+\begin{longtable}{p{0.25\textwidth}p{0.75\textwidth}}
+\toprule
+\textbf{Command} & \textbf{Behavior} \\
+\midrule
+\endhead
+
+"Continue" & Continues dictation at the current position \\
+"Stop" & Stops the current dictation session \\
+"Cancel" & Cancels the current command or operation \\
+"Help" & Displays context-sensitive help for the current view \\
+"What can I say?" & Shows available commands for the current context \\
+"Show commands for [feature]" & Displays commands related to a specific feature \\
+
+\bottomrule
+\caption{Context-Specific Commands}
+\label{tab:context_commands}
+\end{longtable} 

@@ -1,0 +1,50 @@
+@startuml Voice Command Processing
+!theme plain
+
+' Force 4:3 aspect ratio with proper spacing
+scale 800*600
+
+' Simplified styling for better fit
+skinparam sequenceArrowThickness 1
+skinparam roundcorner 0
+skinparam maxmessagesize 40
+skinparam responseMessageBelowArrow true
+skinparam sequenceMessageAlign left
+skinparam lifelineStrategy solid
+skinparam participantPadding 15
+skinparam boxPadding 10
+skinparam sequenceGroupBorderColor gray
+skinparam sequenceGroupBackgroundColor white
+
+' Title in a box
+box "Ajout de Note par Commande Vocale" #white
+participant "Utilisateur" as User
+participant "Application" as App
+participant "API Gemini" as Gemini #lightblue
+participant "Éditeur" as Editor
+end box
+
+' Main sequence - simplified
+User -> App: Activer enregistrement vocal
+activate App
+
+App --> User: Indicateur d'écoute
+User -> App: "Créer une note sur les réunions"
+App -> Gemini: Envoyer audio
+activate Gemini
+
+Gemini -> Gemini: Transcrire et analyser
+Gemini --> App: JSON: {"intent": "CREATE_NOTE", \n"title": "Réunions", "content": "..."}
+deactivate Gemini
+
+App -> Editor: createNote(title, content)
+activate Editor
+Editor -> Editor: Créer structure de note
+Editor --> App: Confirmation
+deactivate Editor
+
+App -> App: Sauvegarder localement
+App --> User: Afficher nouvelle note
+deactivate App
+
+@enduml 

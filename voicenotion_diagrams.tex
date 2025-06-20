@@ -1,0 +1,278 @@
+% VoiceNotion Diagrams
+% This file contains TikZ diagrams for the VoiceNotion documentation
+
+\chapter{Architecture Diagrams}
+
+\section{System Architecture}
+
+% System Architecture Diagram
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        block/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionLightGray},
+        cloud/.style={draw, ellipse, fill=voicenotionLightGray, minimum width=2.5cm, minimum height=1.5cm, align=center},
+        arrow/.style={->, >=stealth, thick, color=voicenotionBlue},
+        every node/.style={font=\small}
+    ]
+    
+    % Client Layer
+    \node[block, fill=voicenotionBlue!20] (mobile) at (0,0) {Mobile Application\\(Expo/React Native)};
+    
+    % API Layer
+    \node[block, fill=voicenotionBlue!30] (api) at (0,-2.5) {RESTful API\\(Node.js)};
+    
+    % Services
+    \node[block, fill=voicenotionBlue!40] (auth) at (-4,-5) {Authentication\\Service};
+    \node[block, fill=voicenotionBlue!40] (notes) at (0,-5) {Notes\\Service};
+    \node[block, fill=voicenotionBlue!40] (voice) at (4,-5) {Voice Processing\\Service};
+    
+    % External Services
+    \node[cloud] (gemini) at (4,-7) {Gemini API};
+    
+    % Database
+    \node[cylinder, draw, shape aspect=0.3, fill=voicenotionBlue!20] (db) at (0,-7) {Database};
+    
+    % Connections
+    \draw[arrow] (mobile) -- (api);
+    \draw[arrow] (api) -- (auth);
+    \draw[arrow] (api) -- (notes);
+    \draw[arrow] (api) -- (voice);
+    \draw[arrow] (auth) -- (db);
+    \draw[arrow] (notes) -- (db);
+    \draw[arrow] (voice) -- (gemini);
+    
+    % Labels
+    \node[text width=4cm, align=center, font=\footnotesize] at (0,1.5) {Client Layer};
+    \node[text width=4cm, align=center, font=\footnotesize] at (5,-2.5) {API Layer};
+    \node[text width=4cm, align=center, font=\footnotesize] at (5,-5) {Service Layer};
+    \node[text width=4cm, align=center, font=\footnotesize] at (5,-7) {External Services};
+    \node[text width=4cm, align=center, font=\footnotesize] at (-5,-7) {Data Layer};
+    
+    \end{tikzpicture}
+    \caption{VoiceNotion System Architecture}
+    \label{fig:system-architecture}
+\end{figure}
+
+\section{Voice Processing Flow}
+
+% Voice Processing Flow Diagram
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        block/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionLightGray},
+        process/.style={rectangle, draw, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionLightGray},
+        decision/.style={diamond, draw, minimum width=2.5cm, minimum height=1.5cm, align=center, fill=voicenotionLightGray},
+        arrow/.style={->, >=stealth, thick, color=voicenotionBlue},
+        every node/.style={font=\small}
+    ]
+    
+    % Flow steps
+    \node[block, fill=voicenotionBlue!10] (start) at (0,0) {User speaks\\command};
+    \node[process, fill=voicenotionBlue!20] (capture) at (0,-2) {Voice capture};
+    \node[process, fill=voicenotionBlue!30] (transcribe) at (0,-4) {Speech-to-text\\transcription};
+    \node[process, fill=voicenotionBlue!40] (intent) at (0,-6) {Intent parsing\\(Gemini API)};
+    \node[decision, fill=voicenotionBlue!30] (valid) at (0,-8.5) {Valid\\command?};
+    \node[process, fill=voicenotionBlue!20] (execute) at (0,-11) {Execute command\\in editor};
+    \node[block, fill=voicenotionBlue!10] (feedback) at (0,-13) {User feedback};
+    
+    % Error path
+    \node[process, fill=voicenotionGray!40] (error) at (4,-11) {Error handling\\and feedback};
+    
+    % Connections
+    \draw[arrow] (start) -- (capture);
+    \draw[arrow] (capture) -- (transcribe);
+    \draw[arrow] (transcribe) -- (intent);
+    \draw[arrow] (intent) -- (valid);
+    \draw[arrow] (valid) -- node[right] {Yes} (execute);
+    \draw[arrow] (valid) -- node[above] {No} (4,-8.5) -- (error);
+    \draw[arrow] (execute) -- (feedback);
+    \draw[arrow] (error) -- (4,-13) -- (feedback);
+    
+    % Example JSON payload
+    \node[draw, rounded corners, text width=4.5cm, fill=voicenotionDarkGray, text=white, font=\ttfamily\footnotesize] (json) at (-5,-6) {
+        \{\\
+        \ \ "intent": "FORMAT\_TEXT",\\
+        \ \ "style": "bold",\\
+        \ \ "text": "important",\\
+        \ \ "position": "selection"\\
+        \}
+    };
+    
+    \draw[arrow, dashed] (json) -- (intent);
+    
+    \end{tikzpicture}
+    \caption{Voice Command Processing Flow}
+    \label{fig:voice-processing}
+\end{figure}
+
+\section{Data Model}
+
+% Data Model Diagram
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        entity/.style={rectangle, draw, rounded corners, minimum width=3cm, minimum height=1.8cm, align=center, fill=voicenotionLightGray},
+        relationship/.style={diamond, draw, minimum width=2cm, minimum height=1cm, align=center, fill=voicenotionBlue!20},
+        line/.style={-, thick},
+        arrow/.style={->, >=stealth, thick},
+        every node/.style={font=\small}
+    ]
+    
+    % Entities
+    \node[entity, fill=voicenotionBlue!20] (user) at (0,0) {
+        \textbf{User}\\
+        \rule{2.5cm}{0.5pt}\\
+        id\\
+        email\\
+        name\\
+        preferences
+    };
+    
+    \node[entity, fill=voicenotionBlue!20] (note) at (6,0) {
+        \textbf{Note}\\
+        \rule{2.5cm}{0.5pt}\\
+        id\\
+        title\\
+        created\_at\\
+        updated\_at
+    };
+    
+    \node[entity, fill=voicenotionBlue!20] (block) at (12,0) {
+        \textbf{Block}\\
+        \rule{2.5cm}{0.5pt}\\
+        id\\
+        type\\
+        content\\
+        order
+    };
+    
+    \node[entity, fill=voicenotionBlue!20] (folder) at (0,-5) {
+        \textbf{Folder}\\
+        \rule{2.5cm}{0.5pt}\\
+        id\\
+        name\\
+        created\_at
+    };
+    
+    \node[entity, fill=voicenotionBlue!20] (tag) at (6,-5) {
+        \textbf{Tag}\\
+        \rule{2.5cm}{0.5pt}\\
+        id\\
+        name\\
+        color
+    };
+    
+    \node[entity, fill=voicenotionBlue!20] (template) at (12,-5) {
+        \textbf{Template}\\
+        \rule{2.5cm}{0.5pt}\\
+        id\\
+        name\\
+        structure
+    };
+    
+    % Relationships
+    \path (user) -- node[relationship] {owns} (note);
+    \path (note) -- node[relationship] {contains} (block);
+    \path (user) -- node[relationship, yshift=-2.5cm] {creates} (folder);
+    \path (note) -- node[relationship, yshift=-2.5cm] {has} (tag);
+    \path (user) -- node[relationship, yshift=-2.5cm, xshift=3cm] {saves} (template);
+    \path (folder) -- node[relationship, yshift=0cm, xshift=3cm] {contains} (note);
+    
+    % Cardinality
+    \node[font=\tiny] at (1.5,0.2) {1};
+    \node[font=\tiny] at (4.5,0.2) {N};
+    \node[font=\tiny] at (7.5,0.2) {1};
+    \node[font=\tiny] at (10.5,0.2) {N};
+    \node[font=\tiny] at (1.5,-2.5) {1};
+    \node[font=\tiny] at (4.5,-2.5) {N};
+    \node[font=\tiny] at (7.5,-2.5) {N};
+    \node[font=\tiny] at (10.5,-2.5) {M};
+    \node[font=\tiny] at (2.5,-4.8) {1};
+    \node[font=\tiny] at (2.5,-3.2) {N};
+    
+    \end{tikzpicture}
+    \caption{VoiceNotion Data Model}
+    \label{fig:data-model}
+\end{figure}
+
+\section{Component Architecture}
+
+% React Component Architecture
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}[
+        component/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionLightGray},
+        screen/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionBlue!20},
+        arrow/.style={->, >=stealth, thick, color=voicenotionBlue},
+        every node/.style={font=\small}
+    ]
+    
+    % App Container
+    \draw[rounded corners, thick, dashed] (-1,1) rectangle (14,-11);
+    \node[anchor=north west, font=\bfseries] at (-1,1) {VoiceNotion App};
+    
+    % Navigation
+    \node[component, fill=voicenotionBlue!10, minimum width=12cm] (nav) at (6.5,0) {Bottom Tab Navigator};
+    
+    % Main Screens
+    \node[screen] (editor) at (0,-2) {NoteEditorScreen};
+    \node[screen] (home) at (4.5,-2) {HomeScreen};
+    \node[screen] (search) at (9,-2) {SearchScreen};
+    \node[screen] (profile) at (13,-2) {ProfileScreen};
+    
+    % Editor Components
+    \draw[rounded corners, thick, dotted] (-1,-3) rectangle (2.5,-10);
+    \node[anchor=north west, font=\small\itshape] at (-1,-3) {Editor Components};
+    
+    \node[component] (toolbar) at (0.75,-4) {EditorToolbar};
+    \node[component] (blocknote) at (0.75,-6) {BlockNoteEditor};
+    \node[component] (voice) at (0.75,-8) {VoiceInputButton};
+    \node[component] (intentparser) at (0.75,-10) {IntentParser};
+    
+    % Home Components
+    \draw[rounded corners, thick, dotted] (3,-3) rectangle (6,-8);
+    \node[anchor=north west, font=\small\itshape] at (3,-3) {Home Components};
+    
+    \node[component] (recent) at (4.5,-4) {RecentNotes};
+    \node[component] (folders) at (4.5,-6) {FoldersList};
+    \node[component] (quickaction) at (4.5,-8) {QuickActions};
+    
+    % Search Components
+    \draw[rounded corners, thick, dotted] (7.5,-3) rectangle (10.5,-6);
+    \node[anchor=north west, font=\small\itshape] at (7.5,-3) {Search Components};
+    
+    \node[component] (searchbar) at (9,-4) {SearchBar};
+    \node[component] (results) at (9,-6) {SearchResults};
+    
+    % Profile Components
+    \draw[rounded corners, thick, dotted] (12,-3) rectangle (14,-6);
+    \node[anchor=north west, font=\small\itshape] at (12,-3) {Profile Components};
+    
+    \node[component] (settings) at (13,-4) {Settings};
+    \node[component] (account) at (13,-6) {AccountInfo};
+    
+    % Connections
+    \draw[arrow] (nav) -- (editor);
+    \draw[arrow] (nav) -- (home);
+    \draw[arrow] (nav) -- (search);
+    \draw[arrow] (nav) -- (profile);
+    
+    \draw[arrow] (editor) -- (toolbar);
+    \draw[arrow] (editor) -- (blocknote);
+    \draw[arrow] (editor) -- (voice);
+    \draw[arrow] (voice) -- (intentparser);
+    
+    \draw[arrow] (home) -- (recent);
+    \draw[arrow] (home) -- (folders);
+    \draw[arrow] (home) -- (quickaction);
+    
+    \draw[arrow] (search) -- (searchbar);
+    \draw[arrow] (search) -- (results);
+    
+    \draw[arrow] (profile) -- (settings);
+    \draw[arrow] (profile) -- (account);
+    
+    \end{tikzpicture}
+    \caption{React Component Architecture}
+    \label{fig:component-architecture}
+\end{figure} 

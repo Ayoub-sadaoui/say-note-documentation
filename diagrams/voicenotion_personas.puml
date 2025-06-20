@@ -1,0 +1,80 @@
+@startuml VoiceNotion Personas
+!theme plain
+skinparam backgroundColor white
+skinparam dpi 300
+skinparam defaultFontName Arial
+skinparam shadowing false
+skinparam RectangleBackgroundColor #f5f5f5
+skinparam RectangleBorderColor #999999
+
+title Personas Utilisateurs VoiceNotion
+
+' Define the personas
+rectangle "Sophie\nL'Étudiante" as sophie #lightblue {
+  card "<b>Profil</b>\n22 ans, étudiante en master de droit,\nutilise smartphone et ordinateur portable" as sophieProfile
+  
+  card "<b>Objectifs</b>" as sophieGoals {
+    * Capturer efficacement les informations en cours
+    * Organiser ses révisions
+    * Créer des liens entre concepts juridiques
+  }
+  
+  card "<b>Frustrations</b>" as sophieFrustrations {
+    * Difficulté à suivre le rythme des professeurs
+    * Perd du temps à reformater ses notes
+    * Navigation fastidieuse entre documents
+  }
+  
+  card "<b>Citation</b>\n\"Je passe plus de temps à essayer de noter\ntout ce que dit le prof qu'à vraiment comprendre le cours.\"" as sophieQuote #aliceblue
+}
+
+rectangle "Marc\nLe Professionnel" as marc #lightgreen {
+  card "<b>Profil</b>\n38 ans, chef de projet dans une entreprise technologique,\ntoujours en déplacement entre réunions et sites clients" as marcProfile
+  
+  card "<b>Objectifs</b>" as marcGoals {
+    * Capturer rapidement les décisions et actions
+    * Organiser ses projets
+    * Partager les informations avec son équipe
+  }
+  
+  card "<b>Frustrations</b>" as marcFrustrations {
+    * Manque de temps pour des notes détaillées
+    * Difficultés à capturer des idées en déplacement
+    * Oublie des détails importants
+  }
+  
+  card "<b>Citation</b>\n\"Entre deux réunions, je n'ai parfois que 5 minutes\npour noter les points clés avant d'enchaîner.\"" as marcQuote #honeydew
+}
+
+rectangle "Leila\nLa Créatrice de Contenu" as leila #lightsalmon {
+  card "<b>Profil</b>\n29 ans, auteure et créatrice de contenu indépendante,\ntravaille depuis chez elle ou dans des cafés" as leilaProfile
+  
+  card "<b>Objectifs</b>" as leilaGoals {
+    * Capturer l'inspiration quand elle survient
+    * Structurer ses idées en articles ou scripts
+    * Organiser ses recherches
+  }
+  
+  card "<b>Frustrations</b>" as leilaFrustrations {
+    * Perd ses meilleures idées sans prise de notes immédiate
+    * Passe trop de temps à organiser son contenu
+    * Lutte avec différents formats de notes
+  }
+  
+  card "<b>Citation</b>\n\"Mes meilleures idées me viennent souvent quand je suis loin\nde mon ordinateur, pendant une promenade ou sous la douche.\"" as leilaQuote #mistyrose
+}
+
+' Add notes
+note bottom of sophie
+  <b>VoiceNotion Solution</b>: Capture rapide en cours + structuration facile pour ses révisions
+end note
+
+note bottom of marc
+  <b>VoiceNotion Solution</b>: Notes en déplacement + partage simplifié avec son équipe
+end note
+
+note bottom of leila
+  <b>VoiceNotion Solution</b>: Capture d'idées instantanée + organisation flexible du contenu
+end note
+
+@enduml 

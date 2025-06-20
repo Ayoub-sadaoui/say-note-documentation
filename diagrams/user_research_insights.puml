@@ -1,0 +1,73 @@
+@startuml User Research Insights
+!theme plain
+skinparam backgroundColor white
+skinparam dpi 300
+skinparam defaultFontName Arial
+skinparam shadowing false
+skinparam ArrowColor #666666
+skinparam RectangleBackgroundColor #f5f5f5
+skinparam RectangleBorderColor #999999
+
+title Insights clés de la recherche utilisateur VoiceNotion
+
+rectangle "Insights de recherche VoiceNotion" as insights {
+  card "Saisie manuelle\nlimitée" as input #lightblue {
+    rectangle "78%" as inputStat #87CEFA
+    note bottom of inputStat
+      des participants trouvent que la saisie manuelle 
+      limite leur capacité à capturer rapidement 
+      les informations lors de réunions ou conférences
+    end note
+  }
+  
+  card "Courbe d'apprentissage\ndes éditeurs par blocs" as editor #lightgreen {
+    rectangle "65%" as editorStat #90EE90
+    note bottom of editorStat
+      des utilisateurs de Notion apprécient la 
+      structure par blocs, mais trouvent la 
+      courbe d'apprentissage trop abrupte
+    end note
+  }
+  
+  card "Intérêt pour les\ncommandes vocales" as voice #lightsalmon {
+    rectangle "92%" as voiceStat #FFA07A
+    note bottom of voiceStat
+      des participants ont exprimé de l'intérêt 
+      pour les commandes vocales, mais 71% craignent 
+      qu'elles ne soient pas assez précises
+    end note
+  }
+  
+  card "Contextes d'utilisation\nmobiles variés" as mobile #plum {
+    rectangle "81%" as mobileStat #DDA0DD
+    note bottom of mobileStat
+      de notre échantillon prennent des notes 
+      dans des contextes où le clavier n'est 
+      pas toujours optimal
+    end note
+  }
+  
+  card "Défis de structuration\npost-capture" as structure #wheat {
+    rectangle "85%" as structureStat #F5DEB3
+    note bottom of structureStat
+      des participants admettent ne jamais 
+      réorganiser leurs notes brutes par 
+      manque de temps
+    end note
+  }
+  
+  ' Position the elements nicely
+  input -[hidden]-> editor
+  editor -[hidden]-> voice
+  voice -[hidden]-> mobile
+  mobile -[hidden]-> structure
+}
+
+note bottom of insights
+  <b>Principaux enseignements</b>
+  Ces insights ont guidé la conception de VoiceNotion en mettant 
+  l'accent sur la rapidité de saisie vocale, la simplicité d'utilisation,
+  et l'organisation automatique des notes.
+end note
+
+@enduml 

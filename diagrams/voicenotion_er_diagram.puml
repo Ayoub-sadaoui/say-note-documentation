@@ -1,0 +1,78 @@
+@startuml VoiceNotion Entity Relationship Diagram
+!theme plain
+
+' Force 4:3 aspect ratio
+scale 800*600
+
+' Styling
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam monochrome false
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 14
+skinparam roundCorner 5
+skinparam ArrowColor #666666
+skinparam EntityBorderColor #666666
+skinparam EntityBackgroundColor #EEEEEE
+
+' Entities
+entity "User" as user {
+  *id : UUID <<PK>>
+  --
+  email : string
+  display_name : string
+  avatar_url : string
+  created_at : timestamp
+  updated_at : timestamp
+}
+
+entity "Note" as note {
+  *id : UUID <<PK>>
+  --
+  *user_id : UUID <<FK>>
+  title : string
+  created_at : timestamp
+  updated_at : timestamp
+  is_archived : boolean
+}
+
+entity "Block" as block {
+  *id : UUID <<PK>>
+  --
+  *note_id : UUID <<FK>>
+  *parent_block_id : UUID <<FK>> null
+  type : string
+  content : json
+  position : integer
+  created_at : timestamp
+  updated_at : timestamp
+}
+
+entity "Subpage" as subpage {
+  *id : UUID <<PK>>
+  --
+  *parent_note_id : UUID <<FK>>
+  *child_note_id : UUID <<FK>>
+  position : integer
+  created_at : timestamp
+}
+
+entity "VoiceCommand" as voice_command {
+  *id : UUID <<PK>>
+  --
+  *user_id : UUID <<FK>>
+  command_text : string
+  intent_type : string
+  parameters : json
+  created_at : timestamp
+}
+
+' Relationships
+user ||--o{ note : creates
+note ||--o{ block : contains
+note ||--o{ subpage : has
+subpage }o--|| note : is
+user ||--o{ voice_command : uses
+
+@enduml 

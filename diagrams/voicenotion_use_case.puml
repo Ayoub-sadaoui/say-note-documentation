@@ -1,0 +1,99 @@
+@startuml VoiceNotion Use Case Diagram
+!theme plain
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam handwritten false
+skinparam actorStyle awesome
+skinparam linetype polyline
+skinparam nodesep 40
+skinparam ranksep 40
+skinparam dpi 300
+skinparam defaultFontSize 12
+skinparam defaultFontName SansSerif
+skinparam usecase {
+  FontSize 12
+  BackgroundColor white
+  BorderColor black
+}
+
+' Use horizontal layout
+left to right direction
+
+' Actors with compact names
+actor "Non-auth\nUser" as UnauthUser
+actor "Auth\nUser" as AuthUser
+actor "API\nGemini" as GeminiAPI #lightblue
+actor "Storage\nService" as StorageService #lightblue
+
+' Main rectangle
+rectangle "VoiceNotion" {
+  ' Create a more compact grid layout
+  package "Gestion du compte" as Account {
+    usecase "S'inscrire" as Register
+    usecase "Se connecter" as Login
+    usecase "Modifier profil" as EditProfile
+  }
+  
+  package "Édition structurée" as Edit {
+    usecase "Manipulation des blocs" as ManipulateBlocks
+    usecase "Formatage du texte" as FormatText
+    usecase "Insertion d'éléments" as InsertRichElements
+  }
+  
+  package "Gestion des notes" as Notes {
+    usecase "Créer note" as CreateNote
+    usecase "Éditer note" as EditNote
+    usecase "Supprimer note" as DeleteNote
+    usecase "Créer sous-page" as CreateSubpage
+  }
+  
+  package "Interaction vocale" as Voice {
+    usecase "Dicter contenu" as DictateContent
+    usecase "Commandes formatage" as FormatCommands
+    usecase "Navigation par voix" as VoiceNavigation
+    usecase "Créer des blocs" as CreateBlocks
+  }
+  
+  package "Recherche et filtrage" as Search {
+    usecase "Recherche textuelle" as TextSearch
+    usecase "Filtrage par date" as FilterByDate
+  }
+  
+  usecase "Exporter note" as ExportNote
+}
+
+' Position packages horizontally
+Account -[hidden]right- Edit
+Edit -[hidden]right- Notes
+Notes -[hidden]right- Voice
+Voice -[hidden]right- Search
+Search -[hidden]right- ExportNote
+
+' Position actors to minimize crossing lines
+UnauthUser -[hidden]right- AuthUser
+AuthUser -[hidden]right- GeminiAPI
+GeminiAPI -[hidden]right- StorageService
+
+' Relationships - Unauthenticated User (simplified)
+UnauthUser --> Register
+UnauthUser --> Login
+
+' Relationships - Authenticated User (simplified)
+AuthUser --> Account
+AuthUser --> Notes
+AuthUser --> Voice
+AuthUser --> Edit
+AuthUser --> Search
+AuthUser --> ExportNote
+
+' Relationships - Gemini API (simplified)
+GeminiAPI --> Voice
+
+' Relationships - Storage Service (simplified)
+StorageService --> Notes
+
+' Set max dimensions to ensure square-like shape
+scale max 1000 width
+scale max 800 height
+
+@enduml 

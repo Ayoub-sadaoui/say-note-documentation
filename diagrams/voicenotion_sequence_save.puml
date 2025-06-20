@@ -1,0 +1,67 @@
+@startuml Note Creation and Saving
+!theme plain
+
+' Force 4:3 aspect ratio with proper spacing
+scale 800*600
+
+' Simplified styling for better fit
+skinparam sequenceArrowThickness 1
+skinparam roundcorner 0
+skinparam maxmessagesize 40
+skinparam responseMessageBelowArrow true
+skinparam sequenceMessageAlign left
+skinparam lifelineStrategy solid
+skinparam participantPadding 15
+skinparam boxPadding 10
+skinparam sequenceGroupBorderColor gray
+skinparam sequenceGroupBackgroundColor white
+
+' Title in a box
+box "Création et Sauvegarde de Note" #white
+participant "Utilisateur" as User
+participant "Application" as App
+participant "Éditeur" as Editor
+participant "Stockage" as Storage #lightgray
+end box
+
+' Simplified flow
+User -> App: Créer nouvelle note
+activate App
+
+App -> Storage: Initialiser note
+activate Storage
+Storage --> App: ID de note
+deactivate Storage
+
+App -> Editor: Initialiser éditeur
+activate Editor
+Editor --> App: Éditeur prêt
+App --> User: Afficher note vide
+deactivate Editor
+
+' Editing
+User -> App: Modifier contenu
+activate Editor
+App -> Editor: updateContent()
+Editor --> App: Mise à jour
+deactivate Editor
+
+' Auto-save
+note over App: Après délai d'inactivité
+App -> Storage: saveNote(id, content)
+activate Storage
+Storage --> App: Confirmation
+deactivate Storage
+App --> User: Indicateur "Sauvegardé"
+
+' Manual save
+User -> App: Appuyer sur "Enregistrer"
+App -> Storage: saveNote(id, content)
+activate Storage
+Storage --> App: Confirmation
+deactivate Storage
+App --> User: Message "Note enregistrée"
+
+deactivate App
+
+@enduml 

@@ -1,0 +1,261 @@
+% VoiceNotion Documentation LaTeX Template
+% Based on academic thesis structure
+
+\documentclass[12pt,a4paper,final]{report}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[french,english]{babel}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{tcolorbox}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\usepackage{calc}
+\usetikzlibrary{calc}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{tocbibind} % For adding LoF, LoT to ToC
+\usepackage{tocloft} % For customizing ToC, LoF, LoT
+
+% Page geometry
+\geometry{a4paper, margin=2.5cm}
+
+% Define VoiceNotion colors
+\definecolor{voicenotionBlue}{RGB}{0, 122, 255}
+\definecolor{voicenotionGray}{RGB}{142, 142, 147}
+\definecolor{voicenotionLightGray}{RGB}{242, 242, 247}
+\definecolor{voicenotionDarkGray}{RGB}{44, 44, 46}
+\definecolor{coverBorderColor}{RGB}{0, 0, 0}
+
+% Table of contents formatting
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\renewcommand{\cftsubsubsecfont}{\normalfont}
+\renewcommand{\cftsubsubsecpagefont}{\normalfont}
+
+\renewcommand{\cftchapdotsep}{\cftdotsep} % Add dots for chapters
+\renewcommand{\cftchapafterpnum}{\vskip6pt} % Add space after chapter lines
+
+\setlength{\cftbeforechapskip}{0.4em} % Reduce space between chapter entries
+\setlength{\cftbeforesecskip}{0.3em} % Reduce space between section entries
+\setlength{\cftbeforesubsecskip}{0.2em} % Reduce space between subsection entries
+
+% Set depth of ToC
+\setcounter{tocdepth}{3} % Show down to subsubsections
+\setcounter{secnumdepth}{3} % Number down to subsubsections
+
+% Format headings to match the style from the example
+\titleformat{\chapter}[display]
+{\normalfont\Large\bfseries}
+{\MakeUppercase{\chaptertitlename} \thechapter}{0.5em}{\MakeUppercase}
+
+\titleformat{\section}
+{\normalfont\normalsize\bfseries}
+{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\normalfont\normalsize}
+{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\normalfont\normalsize\itshape}
+{\thesubsubsection}{1em}{}
+
+% Set headheight to avoid warnings
+\setlength{\headheight}{14.5pt}
+
+% Hyperlink settings
+\hypersetup{
+    colorlinks=true,
+    linkcolor=voicenotionBlue,
+    citecolor=voicenotionBlue,
+    urlcolor=voicenotionBlue,
+    pdftitle={VoiceNotion: Voice-Enabled Note-Taking Application},
+    pdfauthor={VoiceNotion Team},
+    pdfsubject={Technical Documentation},
+    pdfkeywords={voice notes, note-taking, mobile app, voice commands}
+}
+
+% Custom environments
+\newenvironment{featurebox}[1]{
+    \begin{tcolorbox}[colback=voicenotionLightGray, colframe=voicenotionBlue, title=#1]
+}{
+    \end{tcolorbox}
+}
+
+\newenvironment{codebox}[1]{
+    \begin{tcolorbox}[colback=voicenotionDarkGray, colframe=voicenotionGray, coltext=white, title=#1]
+}{
+    \end{tcolorbox}
+}
+
+% Code listing style
+\lstset{
+    backgroundcolor=\color{voicenotionDarkGray},
+    basicstyle=\footnotesize\ttfamily\color{white},
+    breaklines=true,
+    captionpos=b,
+    commentstyle=\color{voicenotionGray},
+    keywordstyle=\color{voicenotionBlue},
+    stringstyle=\color{green!50!black},
+    numberstyle=\tiny\color{voicenotionGray},
+    frame=single,
+    rulecolor=\color{voicenotionGray},
+    showstringspaces=false,
+    tabsize=2
+}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\slshape\nouppercase{\leftmark}}
+\fancyhead[R]{VoiceNotion}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\begin{document}
+
+% Custom title page - matching the reference exactly
+\begin{titlepage}
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+  % Draw thick black border around the page with reduced top/bottom margins
+  \draw [line width=2pt, coverBorderColor] 
+    ($(current page.north west) + (0.8cm,-0.4cm)$) 
+    rectangle 
+    ($(current page.south east) + (-0.8cm,0.4cm)$);
+    
+  % Draw inner border - thinner line with reduced top/bottom margins
+  \draw [line width=0.5pt, coverBorderColor] 
+    ($(current page.north west) + (1.1cm,-0.7cm)$) 
+    rectangle 
+    ($(current page.south east) + (-1.1cm,0.7cm)$);
+\end{tikzpicture}
+
+\begin{center}
+    \vspace*{0.1cm}
+    {\Large \textbf{République Algérienne Démocratique et Populaire}} \\
+    \vspace{0.3cm}
+    {\large Ministère de l'Enseignement Supérieur et de la Recherche Scientifique} \\
+    \vspace{0.3cm}
+    {\large Université M'hamed Bougara - Boumerdès} \\
+    \vspace{0.6cm}
+    
+    % University logo
+    \includegraphics[width=4.5cm]{assets/docs/university_logo.png} \\
+    \vspace{0.6cm}
+    
+    {\large Faculté des Sciences} \\
+    \vspace{0.2cm}
+    {\large Département d'Informatique} \\
+    \vspace{0.6cm}
+    
+    \begin{tabular}{rl}
+        \textbf{Domaine} & : Mathématiques Informatique \\
+        \textbf{Filière} & : Informatique \\
+        \textbf{Spécialité} & : Développement Web et Infographie \\
+    \end{tabular} \\
+    
+    {\small \textit{N° de l'Arrêté d'habilitation de la spécialité : arrêté n°002 du 03/01/2021}} \\
+    \vspace{0.7cm}
+    
+    {\large \textit{\underline{Mémoire de fin d'études en vu de l'obtention du}}} \\
+    {\large \textit{\underline{Diplôme de Licence Professionnelle}}} \\
+    \vspace{0.7cm}
+    
+    {\LARGE \textbf{Thème}} \\
+    \vspace{0.6cm}
+    
+    % Create box with project title matching the reference image
+    \begin{tikzpicture}
+        \node[draw, rounded corners=15pt, line width=1pt, minimum width=14cm, minimum height=3.5cm] {
+            \begin{minipage}{13cm}
+                \begin{center}
+                    \vspace{-0.5cm}
+                    \fontsize{22}{26}\selectfont \textbf{VoiceNotion} \\
+                    \fontsize{22}{26}\selectfont \textbf{AI-Based Voice Productivity SaaS Application}
+                \end{center}
+            \end{minipage}
+        };
+    \end{tikzpicture}
+    \vspace{0.8cm}
+
+    \begin{tabular}{p{8cm}p{6cm}}
+        \textbf{Présenté par :} & \textbf{Supervisé par :} \\
+        BENHADJER Foudhil Abdellah & CHAOUCHE Ali \\
+        SADAOUI Ayoub & \\
+        HAFSAOUI Abderahim & \\
+    \end{tabular} \\
+    \vspace{0.8cm}
+    
+    {\normalsize Soutenu le \underline{24/06/2024} Devant le jury composé de} \\
+    \vspace{0.4cm}
+    \begin{tabular}{lll}
+        SIACI Redouane & : & Examinateur \\
+        HAMMICHE Mokhtar & : & Président \\
+    \end{tabular}
+\end{center}
+\end{titlepage}
+
+\newpage
+% Create a special page for TABLE DES MATIERES
+\thispagestyle{empty}
+\begin{center}
+    \vspace*{1cm}
+    \Huge{\textbf{TABLE DES MATIÈRES}}
+    \vspace{1.5cm}
+\end{center}
+\renewcommand{\contentsname}{}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+% List of figures
+\thispagestyle{empty}
+\begin{center}
+    \vspace*{1cm}
+    \Huge{\textbf{TABLE DES FIGURES}}
+    \vspace{1.5cm}
+\end{center}
+\renewcommand{\listfigurename}{}
+\listoffigures
+\thispagestyle{empty}
+\newpage
+
+% Introduction chapter
+\input{voicenotion_introduction}
+
+% Chapter 1: Etude préalable
+\input{voicenotion_etude_prealable}
+
+% Chapter 2: Planification et Conception UX
+\input{voicenotion_planification_ux}
+
+% Chapter 3: Implementation et Developpement
+\input{voicenotion_implementation}
+
+% Chapter 4: Identité Visuelle
+\input{voicenotion_visual_identity}
+
+
+
+% End of document
+\end{document} 

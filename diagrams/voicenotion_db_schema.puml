@@ -1,0 +1,88 @@
+@startuml VoiceNotion Database Schema
+!theme plain
+
+' Force 4:3 aspect ratio
+scale 800*600
+
+' VoiceNotion blue color
+!define VOICENOTION_BLUE #3498db
+
+' Styling
+skinparam linetype ortho
+skinparam packageStyle rectangle
+skinparam shadowing false
+skinparam defaultFontName Arial
+skinparam defaultFontSize 12
+skinparam roundCorner 0
+skinparam ArrowColor #666666
+skinparam class {
+    BackgroundColor white
+    BorderColor #666666
+    HeaderBackgroundColor VOICENOTION_BLUE
+    HeaderFontColor white
+    AttributeFontColor black
+    AttributeFontSize 11
+    StereotypeFontSize 11
+}
+
+' Tables
+class "users" as users {
+    <b>id</b> UUID <<PK>>
+    --
+    email VARCHAR(255) <<unique>>
+    display_name VARCHAR(255)
+    avatar_url TEXT
+    created_at TIMESTAMP
+    updated_at TIMESTAMP
+}
+
+class "notes" as notes {
+    <b>id</b> UUID <<PK>>
+    --
+    user_id UUID <<FK>>
+    title VARCHAR(255)
+    created_at TIMESTAMP
+    updated_at TIMESTAMP
+    is_archived BOOLEAN
+}
+
+class "blocks" as blocks {
+    <b>id</b> UUID <<PK>>
+    --
+    note_id UUID <<FK>>
+    parent_block_id UUID <<FK>> NULL
+    type VARCHAR(50)
+    content JSONB
+    position INTEGER
+    created_at TIMESTAMP
+    updated_at TIMESTAMP
+}
+
+class "subpages" as subpages {
+    <b>id</b> UUID <<PK>>
+    --
+    parent_note_id UUID <<FK>>
+    child_note_id UUID <<FK>>
+    position INTEGER
+    created_at TIMESTAMP
+}
+
+class "voice_commands" as voice_commands {
+    <b>id</b> UUID <<PK>>
+    --
+    user_id UUID <<FK>>
+    command_text TEXT
+    intent_type VARCHAR(100)
+    parameters JSONB
+    created_at TIMESTAMP
+}
+
+' Relationships with foreign key constraints
+users "1" -- "0..*" notes : user_id
+notes "1" -- "0..*" blocks : note_id
+blocks "0..1" -- "0..*" blocks : parent_block_id
+notes "1" -- "0..*" subpages : parent_note_id
+notes "1" -- "0..*" subpages : child_note_id
+users "1" -- "0..*" voice_commands : user_id
+
+@enduml 
