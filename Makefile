@@ -12,7 +12,7 @@ INTRODUCTION = voicenotion_introduction
 OUTPUT_DIR = output
 ASSETS_DIR = ../assets/docs
 LATEX = pdflatex
-LATEX_OPTS = -interaction=nonstopmode -output-directory=$(OUTPUT_DIR)
+LATEX_OPTS = -output-directory=$(OUTPUT_DIR)
 
 # Create output and assets directories if they don't exist
 $(OUTPUT_DIR):
@@ -30,7 +30,7 @@ placeholder: $(ASSETS_DIR)
 
 # Check for required files
 check-files:
-	@for file in $(MAIN).tex $(TOC_STRUCTURE).tex $(INTRODUCTION).tex; do \
+		@for file in $(MAIN).tex $(INTRODUCTION).tex; do \
 		if [ ! -f $$file ]; then \
 			echo "Missing required file: $$file"; \
 			exit 1; \

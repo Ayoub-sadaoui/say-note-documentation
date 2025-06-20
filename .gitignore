@@ -1,0 +1,29 @@
+# LaTeX auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.synctex.gz
+*.pdf
+*.gz
+*.fdb
+*.bbl
+*.blg
+*.run.xml
+
+# Output directory
+output/
+
+# IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS specific files
+.DS_Store
+Thumbs.db

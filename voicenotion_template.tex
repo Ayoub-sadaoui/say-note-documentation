@@ -26,7 +26,9 @@
 \usepackage{geometry}
 \usepackage{titlesec}
 \usepackage{array}
-\usepackage{tocbibind} % For adding LoF, LoT to ToC
+\usepackage{pifont}
+\usepackage{amssymb}
+% \usepackage{tocbibind} % For adding LoF, LoT to ToC
 \usepackage{tocloft} % For customizing ToC, LoF, LoT
 
 % Page geometry
@@ -237,25 +239,28 @@
 \end{center}
 \renewcommand{\listfigurename}{}
 \listoffigures
+\addcontentsline{toc}{chapter}{TABLE DES FIGURES}
 \thispagestyle{empty}
 \newpage
 
 % Introduction chapter
+\chapter*{INTRODUCTION}
+\addcontentsline{toc}{chapter}{INTRODUCTION}
 \input{voicenotion_introduction}
 
 % Chapter 1: Etude préalable
+\chapter{ETUDE PREALABLE}
 \input{voicenotion_etude_prealable}
 
 % Chapter 2: Planification et Conception UX
+\chapter{PLANIFICATION ET CONCEPTION UX}
 \input{voicenotion_planification_ux}
 
 % Chapter 3: Implementation et Developpement
+\chapter{IMPLEMENTATION ET DEVELOPPEMENT}
 \input{voicenotion_implementation}
 
 % Chapter 4: Identité Visuelle
-\input{voicenotion_visual_identity}
-
-
 
 % End of document
 \end{document} 
