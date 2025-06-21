@@ -1,7 +1,13 @@
 % VoiceNotion - Chapitre II: Planification et Conception UX
 % Ce chapitre présente la planification du projet et la conception de l'expérience utilisateur
 
+% --- Introduction non numérotée ---
+\begin{center}
+\textbf{\large Introduction du Chapitre}
+\end{center}
 
+\noindent
+Ce chapitre présente la démarche de planification et la conception de l'expérience utilisateur (UX) pour VoiceNotion. Il détaille la méthodologie adoptée, la structuration du projet, ainsi que l'approche centrée sur l'utilisateur, en mettant l'accent sur l'importance des diagrammes UML et techniques pour la modélisation du système. Le lecteur découvrira comment la planification et la conception UX préparent le terrain pour une implémentation efficace et cohérente.
 
 \section{Introduction}
 
@@ -51,6 +57,9 @@ En parallèle de Scrum, nous avons intégré le processus de Design Thinking pou
 
 Cette approche centrée sur l'utilisateur est particulièrement pertinente pour VoiceNotion, où l'interaction vocale nécessite une compréhension fine des attentes et des comportements des utilisateurs.
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
 \begin{figure}[H]
     \centering
     %\includegraphics[width=0.8\textwidth]{assets/docs/agile_design_thinking.png}
@@ -98,6 +107,26 @@ La roadmap de VoiceNotion a été structurée en quatre phases principales, chac
         \item Lancement officiel de l'application
     \end{itemize}
 \end{enumerate}
+
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{assets/docs/planification_table.png}
+    \caption{Tableau de planification de projet}
+    \label{fig:planification_table}
+\end{figure}
+
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{assets/docs/gantt_chart.png}
+    \caption{Diagramme de Gantt de planification de projet}
+    \label{fig:gantt_chart}
+\end{figure}
 
 \subsubsection{Gestion des risques}
 
@@ -160,6 +189,9 @@ Cette recherche a mis en lumière plusieurs insights clés qui ont guidé notre 
     \item La structuration post-capture est identifiée comme l'un des plus grands défis, avec 85\% des participants qui admettent ne jamais réorganiser leurs notes brutes par manque de temps.
 \end{enumerate}
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{assets/docs/user_research_insights.png}
@@ -203,11 +235,64 @@ Basés sur notre recherche, nous avons développé trois personas principaux qui
     \item \textbf{Citation:} "Mes meilleures idées me viennent souvent quand je suis loin de mon ordinateur, pendant une promenade ou sous la douche."
 \end{itemize}
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre les trois personas principaux de VoiceNotion.}
 \begin{figure}[H]
     \centering
+    % PLACEHOLDER: Ajoutez ici l'image illustrant les trois personas (par exemple, avatars ou diagramme).
     %\includegraphics[width=0.9\textwidth]{assets/docs/voicenotion_personas.png}
-    \caption{Les trois personas principaux de VoiceNotion}
+    \caption{Les trois personas principaux de VoiceNotion. \newline\textit{Cette illustration synthétise les profils cibles pour la conception UX.}}
     \label{fig:voicenotion_personas}
+\end{figure}
+
+% ===============================
+% Section: Wireframes et Design System
+% ===============================
+
+\subsection{Wireframes de l'application mobile}
+
+Avant le prototypage final, des wireframes basse fidélité ont été réalisés pour définir la structure et l'expérience utilisateur de l'application mobile VoiceNotion.
+
+% Explication brève avant la figure
+\noindent
+\textit{La figure suivante présente un wireframe représentatif de l'application mobile.}
+\begin{figure}[H]
+    \centering
+    % PLACEHOLDER: Ajoutez ici le wireframe de l'application mobile (ex: assets/docs/wireframe_app.png)
+    %\includegraphics[width=0.8\textwidth]{assets/docs/wireframe_app.png}
+    \caption{Wireframe de l'application mobile VoiceNotion. \newline\textit{Ce schéma illustre la navigation et la disposition générale des écrans principaux.}}
+    \label{fig:wireframe_app}
+\end{figure}
+
+\subsection{Wireframes du site web}
+
+Des wireframes spécifiques ont également été conçus pour la version web afin d'assurer une cohérence d'expérience entre plateformes.
+
+% Explication brève avant la figure
+\noindent
+\textit{La figure suivante présente un wireframe représentatif du site web VoiceNotion.}
+\begin{figure}[H]
+    \centering
+    % PLACEHOLDER: Ajoutez ici le wireframe du site web (ex: assets/docs/wireframe_web.png)
+    %\includegraphics[width=0.8\textwidth]{assets/docs/wireframe_web.png}
+    \caption{Wireframe du site web VoiceNotion. \newline\textit{Ce schéma met en avant la structure des pages principales et la logique de navigation.}}
+    \label{fig:wireframe_web}
+\end{figure}
+
+\subsection{Synthèse du Design System}
+
+Une synthèse du design system a été réalisée pour garantir la cohérence visuelle et fonctionnelle de l'ensemble des interfaces.
+
+% Explication brève avant la figure
+\noindent
+\textit{La figure suivante présente un aperçu du design system de VoiceNotion.}
+\begin{figure}[H]
+    \centering
+    % PLACEHOLDER: Ajoutez ici un board synthétique du design system (ex: assets/docs/design_system_board.png)
+    %\includegraphics[width=0.9\textwidth]{assets/docs/design_system_board.png}
+    \caption{Board synthétique du design system VoiceNotion. \newline\textit{Ce board regroupe les composants UI, couleurs, typographies et règles d'usage.}}
+    \label{fig:design_system_board}
 \end{figure}
 
 \subsubsection{Scénarios d'utilisations}
@@ -267,10 +352,13 @@ Le système VoiceNotion interagit avec plusieurs types d'acteurs, chacun ayant d
 
 Le diagramme de cas d'utilisation ci-dessous illustre les principales interactions entre les acteurs et le système VoiceNotion:
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{assets/docs/voicenotion_use_case.png}
-    \caption{Diagramme de cas d'utilisation pour VoiceNotion}
+    \caption{Diagramme de cas d'utilisation principal pour VoiceNotion. \newline\textit{Ce diagramme UML met en évidence les interactions principales entre l'utilisateur et le système, servant de base à la conception fonctionnelle.}}
     \label{fig:use_case_diagram}
 \end{figure}
 
@@ -298,10 +386,13 @@ Pour illustrer les interactions dynamiques entre l'utilisateur, l'application et
 
 Le diagramme suivant montre la séquence d'interactions lors de l'utilisation d'une commande vocale pour manipuler le contenu:
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{assets/docs/voicenotion_sequence_voice.png}
-    \caption{Diagramme de séquence pour le traitement d'une commande vocale}
+    \caption{Diagramme de séquence pour le traitement d'une commande vocale. \newline\textit{Ce diagramme UML détaille le déroulement des interactions lors de l'utilisation d'une commande vocale.}}
     \label{fig:sequence_voice_command}
 \end{figure}
 
@@ -309,10 +400,13 @@ Le diagramme suivant montre la séquence d'interactions lors de l'utilisation d'
 
 Ce diagramme illustre le processus de création, d'édition et de sauvegarde d'une note:
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{assets/docs/voicenotion_sequence_save.png}
-    \caption{Diagramme de séquence pour la création et sauvegarde d'une note}
+    \caption{Diagramme de séquence pour la création et sauvegarde d'une note. \newline\textit{Ce diagramme UML montre le processus de création et de sauvegarde d'une note, mettant en évidence les interactions entre l'utilisateur et le système.}}
     \label{fig:sequence_save_note}
 \end{figure}
 
@@ -320,10 +414,13 @@ Ce diagramme illustre le processus de création, d'édition et de sauvegarde d'u
 
 Ce diagramme illustre le processus d'authentification des utilisateurs dans l'application:
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.85\textwidth]{assets/docs/voicenotion_auth_sequence.png}
-    \caption{Diagramme de séquence pour l'authentification}
+    \caption{Diagramme de séquence pour l'authentification. \newline\textit{Ce diagramme UML explicite les étapes de vérification et de validation lors de la connexion d'un utilisateur.}}
     \label{fig:sequence_auth}
 \end{figure}
 
@@ -333,10 +430,13 @@ Ce diagramme illustre le processus d'authentification des utilisateurs dans l'ap
 
 Le modèle entité-relation ci-dessous représente la structure conceptuelle des données pour VoiceNotion:
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{assets/docs/voicenotion_er_diagram.png}
-    \caption{Diagramme entité-relation pour VoiceNotion}
+    \caption{Diagramme entité-relation pour VoiceNotion. \newline\textit{Ce diagramme technique présente la structure conceptuelle de la base de données, essentielle pour la gestion des données.}}
     \label{fig:er_diagram}
 \end{figure}
 
@@ -358,10 +458,13 @@ Les principales entités et leurs relations sont:
 
 Le schéma logique de la base de données traduit le modèle entité-relation en une structure implémentable:
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de la planification ou de la conception du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.9\textwidth]{assets/docs/voicenotion_db_schema.png}
-    \caption{Schéma logique de la base de données pour VoiceNotion}
+    \caption{Schéma logique de la base de données pour VoiceNotion. \newline\textit{Ce schéma technique traduit le modèle conceptuel en tables relationnelles pour l'implémentation.}}
     \label{fig:db_schema}
 \end{figure}
 
@@ -388,3 +491,13 @@ La recherche utilisateur approfondie et l'élaboration de personas détaillés n
 La conception technique du système, illustrée par les diagrammes de cas d'utilisation, de séquence et de base de données, fournit une base solide pour l'implémentation qui sera détaillée dans le chapitre suivant. Cette architecture a été conçue pour être robuste, évolutive et flexible, permettant d'accommoder les futures améliorations et extensions de l'application.
 
 Les prochaines étapes consistent à transformer cette conception en un produit fonctionnel à travers le développement technique, en restant fidèle à notre vision d'une application de prise de notes révolutionnaire qui libère la créativité et la productivité de ses utilisateurs grâce à la puissance de la voix. 
+
+% --- Conclusion non numérotée ---
+\vspace{1cm}
+\begin{center}
+\textbf{\large Conclusion du Chapitre}
+\end{center}
+
+\noindent
+En résumé, ce chapitre a posé les bases méthodologiques et conceptuelles du projet VoiceNotion. Il a mis en avant l'importance de la planification agile, de la recherche utilisateur, de la modélisation UML et de la conception technique pour garantir le succès de l'implémentation. Les éléments présentés ici serviront de référence pour le développement détaillé exposé dans le chapitre suivant.
+

@@ -1,0 +1,166 @@
+% ===============================
+% VoiceNotion Documentation (Supervisor-Compliant Structure)
+% ===============================
+\documentclass[12pt,a4paper]{report}
+
+% --- Packages ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french,english]{babel}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage[listings]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{caption}
+\definecolor{voicenotionLightGray}{RGB}{240,240,240}
+
+% Define a simple codebox environment for code snippets
+\newtcblisting{codebox}{colback=gray!10!white, colframe=gray!80!black, listing only, left=1mm, right=1mm, top=1mm, bottom=1mm, boxrule=0.5pt, arc=2pt, fonttitle=\bfseries, title=Code, listing options={basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible}}
+\geometry{margin=2.5cm}
+
+% --- Title ---
+\title{VoiceNotion: Documentation}
+\author{BENBOUZID Rima, DOUMAZ Imene}
+\date{\today}
+
+\definecolor{coverBorderColor}{RGB}{0,0,0}
+\usetikzlibrary{calc}
+\begin{document}
+
+% --- Cover Page ---
+% \maketitle
+
+% --- Custom Original Cover Page ---
+\begin{titlepage}
+\thispagestyle{empty}
+
+\begin{tikzpicture}[remember picture,overlay]
+  % Draw thick black border around the page with reduced top/bottom margins
+  \draw [line width=2pt, coverBorderColor] 
+    ($(current page.north west) + (0.8cm,-0.4cm)$) 
+    rectangle 
+    ($(current page.south east) + (-0.8cm,0.4cm)$);
+    
+  % Draw inner border - thinner line with reduced top/bottom margins
+  \draw [line width=0.5pt, coverBorderColor] 
+    ($(current page.north west) + (1.1cm,-0.7cm)$) 
+    rectangle 
+    ($(current page.south east) + (-1.1cm,0.7cm)$);
+\end{tikzpicture}
+
+\begin{center}
+    \vspace*{0.1cm}
+    {\Large \textbf{République Algérienne Démocratique et Populaire}} \\
+    \vspace{0.3cm}
+    {\large Ministère de l'Enseignement Supérieur et de la Recherche Scientifique} \\
+    \vspace{0.3cm}
+    {\large Université M'hamed Bougara - Boumerdès} \\
+    \vspace{0.6cm}
+    
+    % University logo
+    \includegraphics[width=4.5cm]{assets/docs/university_logo.png} \\
+    \vspace{0.6cm}
+    
+    {\large Faculté des Sciences} \\
+    \vspace{0.2cm}
+    {\large Département d'Informatique} \\
+    \vspace{0.6cm}
+    
+    \begin{tabular}{rl}
+        \textbf{Domaine} & : Mathématiques Informatique \\
+        \textbf{Filière} & : Informatique \\
+        \textbf{Spécialité} & : Développement Web et Infographie \\
+    \end{tabular} \\
+    
+    {\small \textit{N° de l'Arrêté d'habilitation de la spécialité : arrêté n°002 du 03/01/2021}} \\
+    \vspace{0.7cm}
+    
+    {\large \textit{\underline{Mémoire de fin d'études en vu de l'obtention du}}} \\
+    {\large \textit{\underline{Diplôme de Licence Professionnelle}}} \\
+    \vspace{0.7cm}
+    
+    {\LARGE \textbf{Thème}} \\
+    \vspace{0.6cm}
+    
+    % Create box with project title matching the reference image
+    \begin{tikzpicture}
+        \node[draw, rounded corners=15pt, line width=1pt, minimum width=14cm, minimum height=3.5cm] {
+            \begin{minipage}{13cm}
+                \begin{center}
+                    \vspace{-0.5cm}
+                    \fontsize{22}{26}\selectfont \textbf{VoiceNotion} \\
+                    \fontsize{22}{26}\selectfont \textbf{AI-Based Voice Productivity SaaS Application}
+                \end{center}
+            \end{minipage}
+        };
+    \end{tikzpicture}
+    \vspace{0.8cm}
+
+    \begin{tabular}{p{8cm}p{6cm}}
+        \textbf{Présenté par :} & \textbf{Supervisé par :} \\
+        BENHADJER Foudhil Abdellah & CHAOUCHE Ali \\
+        SADAOUI Ayoub & \\
+        HAFSAOUI Abderahim & \\
+    \end{tabular} \\
+    \vspace{0.8cm}
+    
+    {\normalsize Soutenu le \underline{24/06/2024} Devant le jury composé de} \\
+    \vspace{0.4cm}
+    \begin{tabular}{lll}
+        SIACI Redouane & : & Examinateur \\
+        HAMMICHE Mokhtar & : & Président \\
+    \end{tabular}
+\end{center}
+\end{titlepage}
+
+
+% --- Résumé & Abstract ---
+\input{resume}
+\input{abstract}
+
+% --- Table of Contents, Figures, Tables ---
+\tableofcontents
+\listoffigures
+\listoftables
+
+% --- General Introduction ---
+\chapter*{Introduction générale}
+\addcontentsline{toc}{chapter}{Introduction générale}
+\input{voicenotion_introduction}
+
+% ===============================
+% PART I (unnamed): State of the Art
+% ===============================
+
+% --- Chapter 1: Study of the existence ---
+\chapter{Étude de l'existant}
+\input{voicenotion_etude_prealable}
+
+% --- Chapter 2: Description of the proposed solution ---
+\chapter{Description de la solution proposée}
+\input{voicenotion_solution}
+
+% ===============================
+% PART II (unnamed): Contribution
+% ===============================
+
+% --- Chapter 1: Conception (includes Visual Identity) ---
+\chapter{Conception}
+\input{conception}
+
+% --- Chapter 2: Implementation ---
+\chapter{Implémentation}
+\input{voicenotion_implementation}
+
+% --- General Conclusion ---
+\chapter*{Conclusion générale}
+\addcontentsline{toc}{chapter}{Conclusion générale}
+\input{conclusion}
+
+\end{document}

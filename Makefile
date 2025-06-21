@@ -10,25 +10,25 @@ COMMANDS = voicenotion_commands
 TOC_STRUCTURE = voicenotion_toc_structure
 INTRODUCTION = voicenotion_introduction
 OUTPUT_DIR = output
-ASSETS_DIR = assets\docs
+ASSETS_DIR = assets/docs
 LATEX = pdflatex
 LATEX_OPTS = -output-directory=$(OUTPUT_DIR)
 
 # Create output directory if it doesn't exist
 $(OUTPUT_DIR):
-	@if not exist $(OUTPUT_DIR) mkdir $(OUTPUT_DIR)
+	@mkdir -p $(OUTPUT_DIR)
 
 # Copy placeholder logo if needed
-placeholder: $(OUTPUT_DIR)
-	@if not exist "$(ASSETS_DIR)\university_logo.png" ( \
-		echo "University logo not found, creating placeholder..." && \
-		(convert -size 300x300 xc:white -fill lightgray -draw "circle 150,150 150,150" -pointsize 24 -gravity center -annotate 0 "University Logo" "$(ASSETS_DIR)\university_logo.png" 2>nul || echo "Warning: ImageMagick not installed, no placeholder created.") \
-	)
+placeholder: $(ASSETS_DIR)
+	@if [ ! -f "$(ASSETS_DIR)/university_logo.png" ]; then \
+		echo "University logo not found, creating placeholder..."; \
+		convert -size 300x300 xc:white -fill lightgray -draw "circle 150,150 150,150" -pointsize 24 -gravity center -annotate 0 "University Logo" "$(ASSETS_DIR)/university_logo.png" 2>/dev/null || echo "Warning: ImageMagick not installed, no placeholder created."; \
+	fi
 
 # Check for required files
 check-files:
-	@if not exist "$(MAIN).tex" ( echo "Missing required file: $(MAIN).tex" & exit /B 1 )
-	@if not exist "$(INTRODUCTION).tex" ( echo "Missing required file: $(INTRODUCTION).tex" & exit /B 1 )
+	@if [ ! -f "$(MAIN).tex" ]; then echo "Missing required file: $(MAIN).tex" && exit 1; fi
+	@if [ ! -f "$(INTRODUCTION).tex" ]; then echo "Missing required file: $(INTRODUCTION).tex" && exit 1; fi
 
 # Compile PDF
 pdf: $(OUTPUT_DIR) placeholder check-files

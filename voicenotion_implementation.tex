@@ -1,7 +1,13 @@
 % VoiceNotion Implementation and Development Chapter
 % Chapter 3 of the VoiceNotion documentation
 
+% --- Introduction non numérotée ---
+\begin{center}
+\textbf{\large Introduction du Chapitre}
+\end{center}
 
+\noindent
+Ce chapitre présente en détail l'implémentation technique de VoiceNotion, en mettant l'accent sur l'architecture, les choix technologiques et les défis rencontrés lors du développement. Le lecteur découvrira comment les différentes composantes s'articulent pour offrir une expérience de prise de notes vocale innovante, performante et sécurisée.
 
 \section{Introduction}
 Cette partie du mémoire est consacrée à l'implémentation et au développement de l'application VoiceNotion. Nous allons détailler l'architecture technique, les technologies utilisées, et les différentes composantes de notre solution. VoiceNotion est une application de prise de notes vocale qui combine une interface web responsive et une application mobile, toutes deux partageant une base de données commune et des fonctionnalités similaires.
@@ -11,10 +17,13 @@ Notre approche de développement a été guidée par les principes de modularit�
 \section{Architecture globale}
 L'architecture de VoiceNotion est construite autour d'une approche multi-plateforme avec un backend commun. Cette architecture permet de maintenir une expérience utilisateur cohérente tout en optimisant le développement pour chaque plateforme.
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
 \centering
 \textit{Image manquante: Architecture globale de VoiceNotion}
-\caption{Architecture globale de VoiceNotion}
+\caption{Architecture globale de VoiceNotion. Ce schéma technique présente la structure générale du système, mettant en avant l'intégration entre le frontend, le backend et les services tiers.}
 \label{fig:global-architecture}
 \end{figure}
 
@@ -160,6 +169,9 @@ Figma est un outil de conception d'interface utilisateur base sur le cloud qui p
 
 L'interface intuitive de Figma et ses fonctionnalites avancees ont grandement facilite le processus de conception, permettant a notre equipe de travailler efficacement meme a distance.
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth]{assets/docs/figma_design_system.png}
@@ -185,6 +197,9 @@ Nous avons utilise Adobe Illustrator pour creer les elements graphiques vectorie
     \item Materiel marketing (bannieres, visuels pour reseaux sociaux)
 \end{itemize}
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
 \centering
 \textit{Image manquante: Création des éléments graphiques avec Adobe Illustrator}
@@ -229,6 +244,9 @@ Nous avons choisi Supabase pour sa flexibilite, sa scalabilite et sa compatibili
 
 Avec Supabase, nous avons pu implementer rapidement des fonctionnalites essentielles comme la synchronisation des notes entre appareils, la gestion des utilisateurs et le stockage des fichiers multimedia associes aux notes.
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{assets/docs/supabase_dashboard.png}
@@ -255,255 +273,21 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
     \centering
     \textit{Logo Prisma manquant}
 \end{wrapfigure}
-Prisma est un ORM (Object-Relational Mapping) moderne, mais concu de maniere tres differente de ce qui se fait actuellement dans l'industrie. En general, les ORM sont des bibliotheques qui font correspondre les tables de votre base de donnees aux classes du langage que vous utilisez pour ecrire votre programme.
+Prisma est un ORM (Object-Relational Mapping) moderne, mais conçu de manière très différente de ce qui se fait actuellement dans l'industrie. En général, les ORM sont des bibliothèques qui font correspondre les tables de votre base de données aux classes du langage que vous utilisez pour écrire votre programme.
 
-Prisma, quant a lui, est une boite a outils de base de donnees complete. En plus, Prisma ne souffre pas des nombreux problemes qui sont communement associes aux ORM traditionnels. L'equipe estime en effet que l'approche des ORM traditionnels conduit a de nombreux problemes causes par le decalage d'impedance objet-relationnel.
+Prisma, quant à lui, est une boîte à outils de base de données complète. En plus, Prisma ne souffre pas des nombreux problèmes qui sont communément associés aux ORM traditionnels. L'équipe estime en effet que l'approche des ORM traditionnels conduit à de nombreux problèmes causés par le décalage d'impédance objet-relationnel.
 
-C'est une situation que la conception de Prisma permet d'eviter. L'un des principaux differentiateurs entre Prisma et un ORM est son fichier de schema centralise et son langage de definition de schema. Ce schema definit a la fois les modeles de donnees de l'application et le schema de la base de donnees.
+C'est une situation que la conception de Prisma permet d'éviter. L'un des principaux différenciateurs entre Prisma et un ORM est son fichier de schéma centralisé et son langage de définition de schéma. Ce schéma définit à la fois les modèles de données de l'application et le schéma de la base de données.
 
-Dans VoiceNotion, Prisma nous permet de:
-\begin{itemize}
-    \item Definir notre schema de base de donnees de maniere declarative
-    \item Generer des types TypeScript a partir du schema
-    \item Effectuer des migrations de base de donnees de maniere securisee
-    \item Interagir avec la base de donnees via une API typee
-\end{itemize}
-
-\subsection{Hebergement et deploiement}
-
-\subsubsection{Vercel}
-\begin{wrapfigure}{r}{0.3\textwidth}
-    \centering
-    \includegraphics[width=0.25\textwidth]{assets/docs/logo_vercel.png}
-\end{wrapfigure}
-Vercel est une plateforme cloud pour les sites statiques et les applications serverless. Elle permet aux developpeurs de deployer des sites web et des applications web avec une configuration zero ou minimale.
-
-Vercel offre un flux de travail optimise pour le developpement web moderne, avec des deploiements instantanes, des domaines personnalises, des certificats SSL automatiques, et une mise a l'echelle globale.
-
-Pour VoiceNotion, nous avons choisi Vercel pour:
-\begin{itemize}
-    \item Deployer notre application Next.js avec une configuration minimale
-    \item Beneficier d'une intregration continue avec GitHub
-    \item Obtenir des aperçus de deploiement pour chaque pull request
-    \item Acceder a un reseau de diffusion de contenu (CDN) mondial
-    \item Deployer des API serverless via les routes API de Next.js
-\end{itemize}
-
-Vercel simplifie considerablement notre workflow de deploiement et nous permet de nous concentrer sur le developpement de nouvelles fonctionnalites plutot que sur la gestion de l'infrastructure.
-
-\subsubsection{Expo EAS}
-\begin{wrapfigure}{r}{0.3\textwidth}
-    \centering
-    \includegraphics[width=0.25\textwidth]{assets/docs/logo_expo.png}
-\end{wrapfigure}
-Expo EAS (Expo Application Services) est un ensemble d'outils et de services pour le deploiement d'applications React Native. Il simplifie le processus de build, de soumission et de mise a jour des applications mobiles.
-
-EAS offre plusieurs services cles:
-\begin{itemize}
-    \item EAS Build: pour compiler les applications iOS et Android dans le cloud
-    \item EAS Submit: pour soumettre des applications aux App Stores
-    \item EAS Update: pour deployer des mises a jour over-the-air (OTA)
-\end{itemize}
-
-Pour VoiceNotion, EAS nous a permis de:
-\begin{itemize}
-    \item Compiler notre application React Native sans avoir a configurer localement Xcode ou Android Studio
-    \item Gerer differents environnements (developpement, preview, production)
-    \item Deployer rapidement des correctifs sans passer par le processus de validation des App Stores
-    \item Automatiser le processus de soumission aux stores
-\end{itemize}
-
-\section{Site web (Front-end)}
-\subsection{Technologies et outils utilises}
-
-\subsubsection{React.js}
-\begin{wrapfigure}{r}{0.3\textwidth}
-    \centering
-    \includegraphics[width=0.25\textwidth]{assets/docs/logo_react.png}
-\end{wrapfigure}
-React est une bibliotheque JavaScript open-source pour la creation d'interfaces utilisateur interactives et reactives. Developpee et maintenue par Facebook (Meta), React est devenue l'un des frameworks frontend les plus populaires dans l'ecosysteme du developpement web.
-
-Les principales caracteristiques de React qui ont guide notre choix pour VoiceNotion sont:
-
-\begin{itemize}
-    \item \textbf{Approche composant}: React permet de construire des interfaces utilisateur modulaires a partir de petits composants reutilisables.
-    \item \textbf{DOM virtuel}: React utilise un DOM virtuel pour optimiser les performances en minimisant les manipulations directes du DOM.
-    \item \textbf{Flux de donnees unidirectionnel}: Les donnees circulent du parent vers l'enfant, ce qui rend le code plus previsible et plus facile a debugger.
-    \item \textbf{Vaste ecosysteme}: React dispose d'un ecosysteme riche de bibliotheques et d'outils complementaires.
-    \item \textbf{Grande communaute}: La communaute active autour de React facilite la resolution de problemes et l'acces aux ressources.
-\end{itemize}
-
-React nous a permis de creer une interface utilisateur fluide et reactive pour notre application web, avec une architecture de composants modulaire et maintenable.
-
-\subsubsection{Next.js}
-\begin{wrapfigure}{r}{0.3\textwidth}
-    \centering
-    \includegraphics[width=0.25\textwidth]{assets/docs/logo_nextjs.png}
-\end{wrapfigure}
-Next.js est un framework React qui offre des fonctionnalites avancees comme le rendu cote serveur (SSR), la generation de sites statiques (SSG), et une architecture basee sur les routes par fichiers. Developpe par Vercel, Next.js simplifie considerablement la creation d'applications React complexes.
-
-Pour VoiceNotion, nous avons choisi Next.js 15 pour:
-
-\begin{itemize}
-    \item \textbf{Performances optimisees}: Rendu hybride qui combine SSR, SSG et CSR selon les besoins
-    \item \textbf{Routage simplifie}: Systeme de routage base sur le systeme de fichiers
-    \item \textbf{API Routes}: Creation d'API serverless integrees a l'application
-    \item \textbf{Optimisation des images}: Redimensionnement, optimisation et diffusion automatiques des images
-    \item \textbf{Server Components}: Composants executes uniquement sur le serveur pour reduire le JavaScript envoye au client
-    \item \textbf{Server Actions}: Fonctions cote serveur appelables directement depuis les composants
-\end{itemize}
-
-L'utilisation de Next.js nous a permis de construire une application web performante et optimisee pour les moteurs de recherche, tout en conservant l'experience de developpement React que nous apprecions.
-
-\begin{codebox}{Configuration Next.js avec TypeScript}
-\begin{lstlisting}
-// next.config.js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    domains: ['localhost', 'supabase.co'],
-  },
-  experimental: {
-    serverActions: true,
-  },
-}
-
-module.exports = nextConfig
-\end{lstlisting}
-\end{codebox}
-
-\subsubsection{TailwindCSS}
-\begin{minipage}{0.7\textwidth}
-TailwindCSS est un framework CSS utilitaire qui permet de construire rapidement des interfaces personnalisees sans quitter votre HTML. Contrairement aux frameworks comme Bootstrap qui fournissent des composants predefinis, Tailwind offre des classes utilitaires de bas niveau que vous combinez pour creer votre design unique.
-
-Les avantages de TailwindCSS qui ont guide notre choix sont:
-
-\begin{itemize}
-    \item \textbf{Developpement rapide}: Creation d'interfaces sans ecrire de CSS personnalise
-    \item \textbf{Personnalisation}: Facilite de personnalisation via un fichier de configuration
-    \item \textbf{Responsivite integree}: Classes adaptees aux differentes tailles d'ecran
-    \item \textbf{Optimisation pour la production}: Elimination automatique des classes non utilisees
-    \item \textbf{Conception coherente}: Systeme de design integre avec espacement, couleurs et typographie coherents
-\end{itemize}
-
-TailwindCSS nous a permis de developper une interface utilisateur coherente et responsive pour VoiceNotion, tout en maintenant un bundle CSS minimal pour des performances optimales.
-\end{minipage}%
-\hfill
-\begin{minipage}{0.25\textwidth}
-\centering
-\includegraphics[width=0.9\textwidth]{assets/docs/logo_tailwindcss.png}
-\end{minipage}
-
-\begin{codebox}{Exemple de composant avec TailwindCSS}
-\begin{lstlisting}
-// components/Button.tsx
-interface ButtonProps {
-  primary?: boolean;
-  children: React.ReactNode;
-  onClick?: () => void;
-}
-
-export function Button({ primary = false, children, onClick }: ButtonProps) {
-  return (
-    <button
-      onClick={onClick}
-      className={`
-        px-4 py-2 rounded-md font-medium transition-colors
-        ${primary 
-          ? "bg-blue-500 text-white hover:bg-blue-600" 
-          : "bg-gray-200 text-gray-800 hover:bg-gray-300"}
-      `}
-    >
-      {children}
-    </button>
-  );
-}
-\end{lstlisting}
-\end{codebox}
-
-\subsubsection{BlockNote}
-\begin{minipage}{0.7\textwidth}
-BlockNote est un editeur de texte riche pour React, inspire par Notion et optimise pour la creation de documents structures. Il offre une experience d'edition moderne avec une architecture de blocs.
-
-Les principales caracteristiques de BlockNote qui nous ont convaincus sont:
-
-\begin{itemize}
-    \item \textbf{Architecture de blocs}: Organisation du contenu en blocs distincts (paragraphes, listes, titres, etc.)
-    \item \textbf{Interface intuitive}: Interface conviviale inspiree des editeurs modernes comme Notion
-    \item \textbf{Personnalisation complete}: Possibilite d'ajouter des types de blocs personnalises
-    \item \textbf{Serialisation et deserialisation}: Conversion facile entre HTML, JSON et Markdown
-    \item \textbf{API extensible}: Possibilite d'etendre les fonctionnalites de base
-\end{itemize}
-
-Pour VoiceNotion, BlockNote etait le choix ideal car il nous permettait d'integrer des commandes vocales a un editeur de texte riche, tout en offrant une experience de prise de notes structuree similaire aux applications populaires comme Notion.
-\end{minipage}%
-\hfill
-\begin{minipage}{0.25\textwidth}
-\centering
-\includegraphics[width=0.9\textwidth]{assets/docs/blocknote.png}
-\end{minipage}
-
-\begin{codebox}{Integration de BlockNote}
-\begin{lstlisting}
-// components/Editor.tsx
-import { BlockNoteEditor, PartialBlock } from '@blocknote/core';
-import { BlockNoteView, useBlockNote } from '@blocknote/react';
-import '@blocknote/react/style.css';
-import { useEffect } from 'react';
-
-export default function Editor({ initialContent, onChange }) {
-  // Initialisation de l'editeur BlockNote
-  const editor = useBlockNote({
-    initialContent,
-    onEditorContentChange: onChange ? (editor) => onChange(editor) : undefined,
-    // Configuration personnalisee pour VoiceNotion
-    editorOptions: {
-      enableSpeech: true,  // Activation de la fonctionnalite vocale
-      placeholderText: "Commencez a taper ou utilisez le bouton micro...",
-    }
-  });
-
-  // Hooks pour la sauvegarde automatique
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (editor && onChange) {
-        onChange(editor);
-      }
-    }, 5000); // Sauvegarde toutes les 5 secondes
-    
-    return () => clearInterval(interval);
-  }, [editor, onChange]);
-
-  return (
-    <BlockNoteView 
-      editor={editor} 
-      theme="light"
-      className="min-h-[300px] border rounded-md shadow-sm"
-    />
-  );
-}
-\end{lstlisting}
-\end{codebox}
-
-\subsection{Interfaces principales}
-
-\subsubsection{Page d'accueil}
 \begin{figure}[H]
 \centering
-\textit{Image manquante: Page d'accueil du site web}
-\caption{Page d'accueil du site VoiceNotion}
-\label{fig:web-landing}
+\textit{Schéma logique de la base de données pour VoiceNotion. \newline\textit{Ce schéma technique traduit le modèle conceptuel en tables relationnelles pour l'implémentation.}}
+\label{fig:prisma-schema}
 \end{figure}
 
-\subsubsection{Authentification}
-\begin{figure}[H]
-\centering
-\textit{Image manquante: Page de connexion du site web}
-\caption{Page de connexion du site VoiceNotion}
-\label{fig:web-login}
-\end{figure}
+Prisma nous permet de:
 
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
 \centering
 \textit{Image manquante: Page d'inscription du site web}
@@ -595,6 +379,9 @@ export default function AuthForm({ mode = "login" }) {
 \end{lstlisting}
 
 \subsubsection{Tableau de bord}
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
 \centering
 \textit{Image manquante: Tableau de bord de l'application web}
@@ -603,6 +390,9 @@ export default function AuthForm({ mode = "login" }) {
 \end{figure}
 
 \subsubsection{Éditeur de notes}
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
 \centering
 \textit{Image manquante: Editeur de l'application web}
@@ -701,6 +491,9 @@ Expo nous a permis d'accelerer considerablement le developpement de l'applicatio
 \subsection{Interfaces principales}
 
 \subsubsection{Authentification}
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{assets/docs/mobile/login-page.jpeg}
@@ -710,6 +503,9 @@ Expo nous a permis d'accelerer considerablement le developpement de l'applicatio
     \label{fig:mobile-auth}
 \end{figure}
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{assets/docs/mobile/forget-password-page.jpeg}
@@ -718,6 +514,9 @@ Expo nous a permis d'accelerer considerablement le developpement de l'applicatio
 \end{figure}
 
 \subsubsection{Navigation et recherche}
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{assets/docs/mobile/home-screen.png}
@@ -728,6 +527,9 @@ Expo nous a permis d'accelerer considerablement le developpement de l'applicatio
 \end{figure}
 
 \subsubsection{Gestion des notes}
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{assets/docs/mobile/note-page.png}
@@ -738,6 +540,9 @@ Expo nous a permis d'accelerer considerablement le developpement de l'applicatio
 \end{figure}
 
 \subsubsection{Profil utilisateur}
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{assets/docs/mobile/profile-screen.png}
@@ -772,6 +577,9 @@ Grace a Gemini, VoiceNotion peut offrir une experience de dictee vocale naturell
 \includegraphics[width=0.9\textwidth]{assets/docs/gemini.png}
 \end{minipage}
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
 \centering
 \textit{Image manquante: Diagramme de l'API Gemini}
@@ -789,6 +597,9 @@ Le traitement des commandes vocales dans VoiceNotion suit un flux bien defini:
     \item Retour visuel et auditif a l'utilisateur
 \end{enumerate}
 
+% Explication brève avant chaque figure
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
 \centering
 \textit{Image manquante: Flux des commandes vocales}
@@ -929,3 +740,12 @@ L'implementation de VoiceNotion a necessite l'integration de nombreuses technolo
 La combinaison de React, Next.js, React Native et Supabase nous a fourni une base solide pour construire notre solution, tandis que l'integration de l'API Gemini a rendu possible la fonctionnalite centrale de reconnaissance vocale.
 
 Les prochaines etapes de developpement incluront l'amelioration continue de la precision de la reconnaissance vocale, l'ajout de nouvelles fonctionnalites collaboratives, et l'optimisation des performances sur tous les appareils. 
+
+% --- Conclusion non numérotée ---
+\vspace{1cm}
+\begin{center}
+\textbf{\large Conclusion du Chapitre}
+\end{center}
+
+\noindent
+En résumé, ce chapitre a détaillé l'ensemble des choix techniques, des architectures et des solutions mises en œuvre pour concrétiser VoiceNotion. L'intégration harmonieuse des différentes technologies et la résolution des défis techniques témoignent de la robustesse et de la modernité de l'application. Ces fondations solides ouvrent la voie à de futures évolutions et améliorations, qui seront abordées dans les perspectives finales du document.

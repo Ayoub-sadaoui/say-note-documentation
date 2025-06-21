@@ -1,0 +1,39 @@
+{Configuration du projet React Native}
+\begin{lstlisting}
+// app.json
+{
+  "expo": {
+    "name": "VoiceNotion",
+    "slug": "voicenotion",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.voicenotion.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.voicenotion.app"
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Autoriser VoiceNotion a acceder a votre microphone."
+        }
+      ]
+    ]
+  }
+}
+\end{lstlisting}
