@@ -1,4 +1,4 @@
-# Makefile for VoiceNotion LaTeX Documentation
+# Makefile for VoiceNotion LaTeX Documentation (Windows Compatible)
 
 # Default target
 all: pdf
@@ -10,32 +10,25 @@ COMMANDS = voicenotion_commands
 TOC_STRUCTURE = voicenotion_toc_structure
 INTRODUCTION = voicenotion_introduction
 OUTPUT_DIR = output
-ASSETS_DIR = ../assets/docs
+ASSETS_DIR = assets\docs
 LATEX = pdflatex
 LATEX_OPTS = -output-directory=$(OUTPUT_DIR)
 
-# Create output and assets directories if they don't exist
+# Create output directory if it doesn't exist
 $(OUTPUT_DIR):
-	mkdir -p $(OUTPUT_DIR)
-
-$(ASSETS_DIR):
-	mkdir -p $(ASSETS_DIR)
+	@if not exist $(OUTPUT_DIR) mkdir $(OUTPUT_DIR)
 
 # Copy placeholder logo if needed
-placeholder: $(ASSETS_DIR)
-	@if [ ! -f $(ASSETS_DIR)/university_logo.png ]; then \
-		echo "University logo not found, creating placeholder..."; \
-		convert -size 300x300 xc:white -fill lightgray -draw "circle 150,150 150,150" -pointsize 24 -gravity center -annotate 0 "University Logo" $(ASSETS_DIR)/university_logo.png 2>/dev/null || echo "Warning: ImageMagick not installed, no placeholder created"; \
-	fi
+placeholder: $(OUTPUT_DIR)
+	@if not exist "$(ASSETS_DIR)\university_logo.png" ( \
+		echo "University logo not found, creating placeholder..." && \
+		(convert -size 300x300 xc:white -fill lightgray -draw "circle 150,150 150,150" -pointsize 24 -gravity center -annotate 0 "University Logo" "$(ASSETS_DIR)\university_logo.png" 2>nul || echo "Warning: ImageMagick not installed, no placeholder created.") \
+	)
 
 # Check for required files
 check-files:
-		@for file in $(MAIN).tex $(INTRODUCTION).tex; do \
-		if [ ! -f $$file ]; then \
-			echo "Missing required file: $$file"; \
-			exit 1; \
-		fi; \
-	done
+	@if not exist "$(MAIN).tex" ( echo "Missing required file: $(MAIN).tex" & exit /B 1 )
+	@if not exist "$(INTRODUCTION).tex" ( echo "Missing required file: $(INTRODUCTION).tex" & exit /B 1 )
 
 # Compile PDF
 pdf: $(OUTPUT_DIR) placeholder check-files
@@ -45,20 +38,20 @@ pdf: $(OUTPUT_DIR) placeholder check-files
 
 # View the PDF (if available)
 view: pdf
-	@if [ -f $(OUTPUT_DIR)/$(MAIN).pdf ]; then \
-		echo "Opening PDF..."; \
-		open $(OUTPUT_DIR)/$(MAIN).pdf 2>/dev/null || xdg-open $(OUTPUT_DIR)/$(MAIN).pdf 2>/dev/null || start $(OUTPUT_DIR)/$(MAIN).pdf 2>/dev/null || echo "Could not open PDF automatically"; \
-	else \
-		echo "PDF not found. Run 'make pdf' first."; \
-	fi
+	@if exist "$(OUTPUT_DIR)\$(MAIN).pdf" ( \
+		echo "Opening PDF..." & \
+		start "" "$(OUTPUT_DIR)\$(MAIN).pdf" \
+	) else ( \
+		echo "PDF not found. Run 'make pdf' first." \
+	)
 
 # Clean up auxiliary files but keep PDF
 clean:
-	rm -f $(OUTPUT_DIR)/*.aux $(OUTPUT_DIR)/*.log $(OUTPUT_DIR)/*.toc $(OUTPUT_DIR)/*.lof $(OUTPUT_DIR)/*.lot $(OUTPUT_DIR)/*.out
+	@-del /Q "$(OUTPUT_DIR)\*.aux" "$(OUTPUT_DIR)\*.log" "$(OUTPUT_DIR)\*.toc" "$(OUTPUT_DIR)\*.lof" "$(OUTPUT_DIR)\*.lot" "$(OUTPUT_DIR)\*.out" 2>nul
 
 # Clean everything including PDF
 distclean: clean
-	rm -f $(OUTPUT_DIR)/*.pdf
+	@-del /Q "$(OUTPUT_DIR)\*.pdf" 2>nul
 
 # Help target
 help:
@@ -71,4 +64,4 @@ help:
 	@echo "  distclean  - Remove all generated files"
 	@echo "  help       - Show this help message"
 
-.PHONY: all pdf placeholder check-files view clean distclean help 
+.PHONY: all pdf placeholder check-files view clean distclean help

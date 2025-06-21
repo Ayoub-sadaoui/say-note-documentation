@@ -1,0 +1,259 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="clientGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:0.08" />
+    </linearGradient>
+    <linearGradient id="serverGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981;stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:#059669;stop-opacity:0.08" />
+    </linearGradient>
+    <linearGradient id="productionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:0.08" />
+    </linearGradient>
+    <linearGradient id="geminiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.08" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:0.08" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.1"/>
+    </filter>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#4285F4" flood-opacity="0.3"/>
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6B7280"/>
+    </marker>
+    <marker id="blueArrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3B82F6"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#ffffff"/>
+  
+  <!-- Client Side Container -->
+  <rect x="30" y="60" width="280" height="450" rx="12" fill="url(#clientGradient)" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="170" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#374151">CLIENT APPLICATIONS</text>
+  
+  <!-- React Native Mobile App -->
+  <rect x="50" y="100" width="240" height="150" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="170" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1F2937">REACT NATIVE APP</text>
+  <text x="170" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">SayNote Mobile (iOS/Android)</text>
+  
+  <!-- React Native Logo -->
+  <g transform="translate(90, 150)">
+    <circle cx="15" cy="15" r="13" fill="#61DAFB"/>
+    <circle cx="15" cy="15" r="4" fill="#fff"/>
+    <ellipse cx="15" cy="15" rx="10" ry="3" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <ellipse cx="15" cy="15" rx="10" ry="3" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/>
+    <ellipse cx="15" cy="15" rx="10" ry="3" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/>
+  </g>
+  
+  <!-- Expo Logo -->
+  <g transform="translate(130, 150)">
+    <rect x="2" y="2" width="26" height="26" rx="3" fill="#000020"/>
+    <circle cx="15" cy="15" r="6" fill="white"/>
+    <circle cx="15" cy="15" r="3" fill="#000020"/>
+  </g>
+  
+  <!-- TypeScript Logo -->
+  <g transform="translate(170, 150)">
+    <rect x="2" y="2" width="26" height="26" rx="3" fill="#3178C6"/>
+    <text x="15" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">TS</text>
+  </g>
+  
+  <!-- BlockNote Logo Mobile -->
+  <g transform="translate(210, 150)">
+    <rect x="2" y="2" width="26" height="26" rx="3" fill="#7C3AED"/>
+    <rect x="8" y="8" width="14" height="2" rx="1" fill="white"/>
+    <rect x="8" y="12" width="10" height="2" rx="1" fill="white"/>
+    <rect x="8" y="16" width="6" height="2" rx="1" fill="white"/>
+  </g>
+  
+  <!-- Mobile Features -->
+  <text x="170" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Voice-to-Text Commands</text>
+  <text x="170" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• BlockNote Editor</text>
+  <text x="170" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Offline Support</text>
+  
+  <!-- Next.js Web App -->
+  <rect x="50" y="270" width="240" height="150" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="170" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1F2937">NEXT.JS WEB APP</text>
+  <text x="170" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">SayNote Web Platform</text>
+  
+  <!-- Real Next.js Logo -->
+  <g transform="translate(90, 320)">
+    <circle cx="15" cy="15" r="13" fill="#000000"/>
+    <path d="M22 15.5L10 8V23L22 15.5Z" fill="#ffffff"/>
+  </g>
+  
+  <!-- React Logo -->
+  <g transform="translate(130, 320)">
+    <circle cx="15" cy="15" r="13" fill="#61DAFB"/>
+    <circle cx="15" cy="15" r="3" fill="#fff"/>
+    <ellipse cx="15" cy="15" rx="9" ry="3" fill="none" stroke="#fff" stroke-width="1.5"/>
+    <ellipse cx="15" cy="15" rx="9" ry="3" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(60 15 15)"/>
+    <ellipse cx="15" cy="15" rx="9" ry="3" fill="none" stroke="#fff" stroke-width="1.5" transform="rotate(120 15 15)"/>
+  </g>
+  
+  <!-- TypeScript Logo -->
+  <g transform="translate(170, 320)">
+    <rect x="2" y="2" width="26" height="26" rx="3" fill="#3178C6"/>
+    <text x="15" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">TS</text>
+  </g>
+  
+  <!-- BlockNote Logo Web -->
+  <g transform="translate(210, 320)">
+    <rect x="2" y="2" width="26" height="26" rx="3" fill="#7C3AED"/>
+    <rect x="8" y="8" width="14" height="2" rx="1" fill="white"/>
+    <rect x="8" y="12" width="10" height="2" rx="1" fill="white"/>
+    <rect x="8" y="16" width="6" height="2" rx="1" fill="white"/>
+  </g>
+  
+  <!-- Web Features -->
+  <text x="170" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• BlockNote Editor</text>
+  <text x="170" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Real-time Sync</text>
+  <text x="170" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Cross-platform Access</text>
+  
+  <!-- Fixed HTTP Request Arrow -->
+  <line x1="310" y1="175" x2="380" y2="175" stroke="#6B7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="345" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">API Requests</text>
+  
+  <line x1="380" y1="345" x2="310" y2="345" stroke="#6B7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="345" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">Real-time Updates</text>
+  
+  <!-- Server Side Container -->
+  <rect x="380" y="60" width="450" height="450" rx="12" fill="url(#serverGradient)" stroke="#E5E7EB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="605" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#374151">BACKEND SERVICES</text>
+  
+  <!-- Supabase Main Container -->
+  <rect x="400" y="100" width="200" height="200" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="500" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1F2937">SUPABASE</text>
+  <text x="500" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Backend-as-a-Service Platform</text>
+  
+  <!-- Real Supabase Logo -->
+  <g transform="translate(480, 150)">
+    <rect x="0" y="0" width="30" height="30" rx="4" fill="#3FCF8E"/>
+    <path d="M20 6 L20 16 L24 12 L28 16 L28 24 L20 24 Z" fill="#ffffff"/>
+    <path d="M12 6 L12 16 L8 12 L4 16 L4 24 L12 24 Z" fill="#ffffff"/>
+    <path d="M8 6 L24 6 L16 12 L8 6" fill="#ffffff"/>
+  </g>
+  
+  <!-- Database Services -->
+  <g transform="translate(410, 200)">
+    <rect x="0" y="0" width="55" height="40" rx="3" fill="#F8F9FA" stroke="#E5E7EB"/>
+    <text x="27" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#374151">PostgreSQL</text>
+    <circle cx="20" cy="25" r="5" fill="#336791"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="white">PG</text>
+  </g>
+  
+  <g transform="translate(475, 200)">
+    <rect x="0" y="0" width="55" height="40" rx="3" fill="#F8F9FA" stroke="#E5E7EB"/>
+    <text x="27" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#374151">Auth</text>
+    <circle cx="20" cy="25" r="5" fill="#EF4444"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="white">🔐</text>
+  </g>
+  
+  <g transform="translate(540, 200)">
+    <rect x="0" y="0" width="55" height="40" rx="3" fill="#F8F9FA" stroke="#E5E7EB"/>
+    <text x="27" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#374151">Realtime</text>
+    <circle cx="20" cy="25" r="5" fill="#10B981"/>
+    <text x="20" y="28" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="white">⚡</text>
+  </g>
+  
+  <!-- Gemini AI -->
+  <rect x="620" y="100" width="190" height="150" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1" filter="url(#shadow)"/>
+  <text x="715" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1F2937">GEMINI AI</text>
+  <text x="715" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">Voice Command Processing</text>
+  
+  <!-- Voice Processing Features -->
+  <text x="715" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Speech-to-Text</text>
+  <text x="715" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Command Intent Recognition</text>
+  <text x="715" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Natural Language Processing</text>
+  <text x="715" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">• Multi-language Support</text>
+  
+  <!-- Connection between Supabase and Gemini -->
+  <line x1="600" y1="175" x2="620" y2="175" stroke="#6B7280" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="610" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#6B7280">Data</text>
+  
+  <!-- Production Container - Repositioned under both sections -->
+  <rect x="30" y="550" width="800" height="200" rx="12" fill="url(#productionGradient)" stroke="#7C3AED" stroke-width="2" filter="url(#shadow)"/>
+  <text x="430" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#5B21B6">PRODUCTION ENVIRONMENT</text>
+  <text x="430" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6B7280">Deployment, Hosting & DevOps Infrastructure</text>
+  
+  <!-- Deployment & Hosting Section -->
+  <g transform="translate(50, 620)">
+    <text x="150" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">DEPLOYMENT & HOSTING</text>
+    
+    <!-- Netlify -->
+    <rect x="20" y="25" width="80" height="60" rx="4" fill="#00C7B7" filter="url(#shadow)"/>
+    <text x="60" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">NETLIFY</text>
+    <text x="60" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">• Web Hosting</text>
+    <text x="60" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">• CI/CD Pipeline</text>
+    <text x="60" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">• Edge Functions</text>
+    
+    <!-- Expo -->
+    <rect x="110" y="25" width="80" height="60" rx="4" fill="#000020" filter="url(#shadow)"/>
+    <text x="150" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">EXPO</text>
+    <text x="150" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">• Mobile Deploy</text>
+    <text x="150" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">• OTA Updates</text>
+    <text x="150" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">• Build Services</text>
+    
+    <!-- App Stores -->
+    <rect x="200" y="25" width="80" height="60" rx="4" fill="#6B7280" filter="url(#shadow)"/>
+    <text x="240" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">APP STORES</text>
+    <text x="240" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">• iOS Store</text>
+    <text x="240" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">• Google Play</text>
+    <text x="240" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">• Distribution</text>
+  </g>
+  
+  <!-- DevOps & Monitoring Section -->
+  <g transform="translate(400, 620)">
+    <text x="150" y="15" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151">DEVOPS & MONITORING</text>
+    
+    <!-- GitHub Actions -->
+    <rect x="0" y="25" width="70" height="60" rx="4" fill="#24292E" filter="url(#shadow)"/>
+    <text x="35" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">GITHUB</text>
+    <text x="35" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">ACTIONS</text>
+    <text x="35" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#A0A0A0">• CI/CD</text>
+    <text x="35" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#A0A0A0">• Testing</text>
+    <text x="35" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#A0A0A0">• Deploy</text>
+    
+    <!-- Analytics -->
+    <rect x="80" y="25" width="70" height="60" rx="4" fill="#FF6B35" filter="url(#shadow)"/>
+    <text x="115" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">ANALYTICS</text>
+    <text x="115" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">• User Tracking</text>
+    <text x="115" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">• Performance</text>
+    <text x="115" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">• Error Tracking</text>
+    
+    <!-- Monitoring -->
+    <rect x="160" y="25" width="70" height="60" rx="4" fill="#00D924" filter="url(#shadow)"/>
+    <text x="195" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">MONITORING</text>
+    <text x="195" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">• Uptime</text>
+    <text x="195" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">• Alerts</text>
+    <text x="195" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">• Logs</text>
+    
+    <!-- Security -->
+    <rect x="240" y="25" width="70" height="60" rx="4" fill="#DC2626" filter="url(#shadow)"/>
+    <text x="275" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">SECURITY</text>
+    <text x="275" y="52" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">• SSL/TLS</text>
+    <text x="275" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">• Auth</text>
+    <text x="275" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="white">• Scanning</text>
+  </g>
+  
+  <!-- Connection Lines from Backend to Production -->
+  <line x1="170" y1="510" x2="170" y2="550" stroke="#7C3AED" stroke-width="3" stroke-dasharray="5,5"/>
+  <line x1="605" y1="510" x2="605" y2="550" stroke="#7C3AED" stroke-width="3" stroke-dasharray="5,5"/>
+  
+  <!-- Data Flow Indicators -->
+  <circle cx="170" cy="530" r="8" fill="#7C3AED"/>
+  <text x="170" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">UI</text>
+  
+  <circle cx="605" cy="530" r="8" fill="#7C3AED"/>
+  <text x="605" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">API</text>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1F2937">SayNote Architecture</text>
+  <text x="600" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">Voice-First Note-Taking Platform with Enhanced AI</text>
+</svg>
