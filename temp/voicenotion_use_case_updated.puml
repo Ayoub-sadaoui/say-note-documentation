@@ -1,4 +1,4 @@
-@startuml VoiceNotion Use Case Diagram
+@startuml SayNote Use Case Diagram
 !theme plain
 skinparam packageStyle rectangle
 skinparam shadowing false
@@ -18,7 +18,7 @@ actor "API Gemini" as GeminiAPI #lightblue
 actor "Service de stockage" as StorageService #lightblue
 
 ' Draw packages with modifications for vertical layout
-rectangle "VoiceNotion" {
+rectangle "SayNote" {
   ' Account Management
   package "Gestion du compte" {
     usecase "S'inscrire" as Register

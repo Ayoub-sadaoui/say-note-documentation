@@ -3,8 +3,8 @@
 // app.json
 {
   "expo": {
-    "name": "VoiceNotion",
-    "slug": "voicenotion",
+    "name": "SayNote",
+    "slug": "SayNote",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,20 +17,20 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.voicenotion.app"
+      "bundleIdentifier": "com.SayNote.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.voicenotion.app"
+      "package": "com.SayNote.app"
     },
     "plugins": [
       [
         "expo-av",
         {
-          "microphonePermission": "Autoriser VoiceNotion a acceder a votre microphone."
+          "microphonePermission": "Autoriser SayNote a acceder a votre microphone."
         }
       ]
     ]

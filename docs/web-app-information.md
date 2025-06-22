@@ -1,10 +1,10 @@
 # Chapter III: Implementation and Development
 
-This document provides a comprehensive breakdown of the implementation and development of the VoiceNotion website. The information is derived from a detailed analysis of the source code.
+This document provides a comprehensive breakdown of the implementation and development of the SayNote website. The information is derived from a detailed analysis of the source code.
 
 ## 1. Overall Architecture
 
-The VoiceNotion application is built using a **Monolithic Frontend-Driven Architecture** powered by **Next.js**. This is a modern web architecture where the frontend and backend are developed within a single project structure but are often deployed as serverless functions.
+The SayNote application is built using a **Monolithic Frontend-Driven Architecture** powered by **Next.js**. This is a modern web architecture where the frontend and backend are developed within a single project structure but are often deployed as serverless functions.
 
 -   **Framework:** Next.js 15 (with App Router) serves as the full-stack framework.
 -   **Rendering:** It employs a hybrid rendering strategy, using Server-Side Rendering (SSR) for initial page loads and Client-Side Rendering (CSR) for dynamic interactions.

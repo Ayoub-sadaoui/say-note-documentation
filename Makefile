@@ -1,14 +1,14 @@
-# Makefile for VoiceNotion LaTeX Documentation (Windows Compatible)
+# Makefile for SayNote LaTeX Documentation (Windows Compatible)
 
 # Default target
 all: pdf
 
 # Variables
 MAIN = main
-DIAGRAMS = voicenotion_diagrams
-COMMANDS = voicenotion_commands
-TOC_STRUCTURE = voicenotion_toc_structure
-INTRODUCTION = voicenotion_introduction
+DIAGRAMS = SayNote_diagrams
+COMMANDS = SayNote_commands
+TOC_STRUCTURE = SayNote_toc_structure
+INTRODUCTION = SayNote_introduction
 OUTPUT_DIR = output
 ASSETS_DIR = assets/docs
 LATEX = pdflatex

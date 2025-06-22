@@ -1,4 +1,4 @@
-% VoiceNotion Documentation LaTeX Template
+% SayNote Documentation LaTeX Template
 % Based on academic thesis structure
 
 \documentclass[12pt,a4paper,final]{report}
@@ -37,11 +37,11 @@
 
 \geometry{a4paper, margin=2.5cm}
 
-% Define VoiceNotion colors
-\definecolor{voicenotionBlue}{RGB}{0, 122, 255}
-\definecolor{voicenotionGray}{RGB}{142, 142, 147}
-\definecolor{voicenotionLightGray}{RGB}{242, 242, 247}
-\definecolor{voicenotionDarkGray}{RGB}{44, 44, 46}
+% Define SayNote colors
+\definecolor{SayNoteBlue}{RGB}{0, 122, 255}
+\definecolor{SayNoteGray}{RGB}{142, 142, 147}
+\definecolor{SayNoteLightGray}{RGB}{242, 242, 247}
+\definecolor{SayNoteDarkGray}{RGB}{44, 44, 46}
 \definecolor{coverBorderColor}{RGB}{0, 0, 0}
 
 % Table of contents formatting
@@ -88,40 +88,40 @@
 % Hyperlink settings
 \hypersetup{
     colorlinks=true,
-    linkcolor=voicenotionBlue,
-    citecolor=voicenotionBlue,
-    urlcolor=voicenotionBlue,
-    pdftitle={VoiceNotion: Voice-Enabled Note-Taking Application},
-    pdfauthor={VoiceNotion Team},
+    linkcolor=SayNoteBlue,
+    citecolor=SayNoteBlue,
+    urlcolor=SayNoteBlue,
+    pdftitle={SayNote: Voice-Enabled Note-Taking Application},
+    pdfauthor={SayNote Team},
     pdfsubject={Technical Documentation},
     pdfkeywords={voice notes, note-taking, mobile app, voice commands}
 }
 
 % Custom environments
 \newenvironment{featurebox}[1]{
-    \begin{tcolorbox}[colback=voicenotionLightGray, colframe=voicenotionBlue, title=#1]
+    \begin{tcolorbox}[colback=SayNoteLightGray, colframe=SayNoteBlue, title=#1]
 }{
     \end{tcolorbox}
 }
 
 \newenvironment{codebox}[1]{
-    \begin{tcolorbox}[colback=voicenotionDarkGray, colframe=voicenotionGray, coltext=white, title=#1]
+    \begin{tcolorbox}[colback=SayNoteDarkGray, colframe=SayNoteGray, coltext=white, title=#1]
 }{
     \end{tcolorbox}
 }
 
 % Code listing style
 \lstset{
-    backgroundcolor=\color{voicenotionDarkGray},
+    backgroundcolor=\color{SayNoteDarkGray},
     basicstyle=\footnotesize\ttfamily\color{white},
     breaklines=true,
     captionpos=b,
-    commentstyle=\color{voicenotionGray},
-    keywordstyle=\color{voicenotionBlue},
+    commentstyle=\color{SayNoteGray},
+    keywordstyle=\color{SayNoteBlue},
     stringstyle=\color{green!50!black},
-    numberstyle=\tiny\color{voicenotionGray},
+    numberstyle=\tiny\color{SayNoteGray},
     frame=single,
-    rulecolor=\color{voicenotionGray},
+    rulecolor=\color{SayNoteGray},
     showstringspaces=false,
     tabsize=2
 }
@@ -130,7 +130,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\slshape\nouppercase{\leftmark}}
-\fancyhead[R]{VoiceNotion}
+\fancyhead[R]{SayNote}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -195,7 +195,7 @@
             \begin{minipage}{13cm}
                 \begin{center}
                     \vspace{-0.5cm}
-                    \fontsize{22}{26}\selectfont \textbf{VoiceNotion} \\
+                    \fontsize{22}{26}\selectfont \textbf{SayNote} \\
                     \fontsize{22}{26}\selectfont \textbf{AI-Based Voice Productivity SaaS Application}
                 \end{center}
             \end{minipage}
@@ -262,22 +262,22 @@
 % Introduction chapter
 \chapter*{INTRODUCTION}
 \addcontentsline{toc}{chapter}{INTRODUCTION}
-\input{voicenotion_introduction}
+\input{SayNote_introduction}
 
 % Chapter 1: Etude préalable
 \chapter{ETUDE PREALABLE}
-\input{voicenotion_etude_prealable}
+\input{SayNote_etude_prealable}
 
 % Chapter 2: Planification et Conception UX
 \chapter{PLANIFICATION ET CONCEPTION UX}
-\input{voicenotion_planification_ux}
+\input{SayNote_planification_ux}
 
 % Chapter 3: Implementation et Developpement
 \chapter{IMPLEMENTATION ET DEVELOPPEMENT}
-\input{voicenotion_implementation}
+\input{SayNote_implementation}
 
 \chapter{IDENTITE VISUELLE}
-\input{voicenotion_visual_identity}
+\input{SayNote_visual_identity}
 
 % End of document
 \end{document} 

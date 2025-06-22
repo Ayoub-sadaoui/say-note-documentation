@@ -1,4 +1,4 @@
-@startuml VoiceNotion Entity Relationship Diagram
+@startuml SayNote Entity Relationship Diagram
 !theme plain
 
 ' Force 4:3 aspect ratio

@@ -1,11 +1,11 @@
-@startuml VoiceNotion Database Schema
+@startuml SayNote Database Schema
 !theme plain
 
 ' Force 4:3 aspect ratio
 scale 800*600
 
-' VoiceNotion blue color
-!define VOICENOTION_BLUE #3498db
+' SayNote blue color
+!define SayNote_BLUE #3498db
 
 ' Styling
 skinparam linetype ortho
@@ -18,7 +18,7 @@ skinparam ArrowColor #666666
 skinparam class {
     BackgroundColor white
     BorderColor #666666
-    HeaderBackgroundColor VOICENOTION_BLUE
+    HeaderBackgroundColor SayNote_BLUE
     HeaderFontColor white
     AttributeFontColor black
     AttributeFontSize 11

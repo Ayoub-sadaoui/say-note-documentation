@@ -1,4 +1,4 @@
-@startuml VoiceNotion Authentication Sequence
+@startuml SayNote Authentication Sequence
 !theme plain
 
 ' Force 4:3 aspect ratio with proper spacing
@@ -21,7 +21,7 @@ skinparam sequenceGroupBorderColor gray
 skinparam sequenceGroupBackgroundColor white
 
 ' Title in a box
-box "VoiceNotion Authentication" #white
+box "SayNote Authentication" #white
 participant "Utilisateur" as User
 participant "Application" as App
 participant "Supabase" as Supabase

@@ -1,5 +1,5 @@
-% VoiceNotion Implementation and Development Chapter
-% Chapter 3 of the VoiceNotion documentation
+% SayNote Implementation and Development Chapter
+% Chapter 3 of the SayNote documentation
 
 % --- Introduction non numérotée ---
 \begin{center}
@@ -7,20 +7,20 @@
 \end{center}
 
 \noindent
-Ce chapitre présente en détail l'implémentation technique de VoiceNotion, en mettant l'accent sur l'architecture, les choix technologiques et les défis rencontrés lors du développement. Le lecteur découvrira comment les différentes composantes s'articulent pour offrir une expérience de prise de notes vocale innovante, performante et sécurisée.
+Ce chapitre présente en détail l'implémentation technique de SayNote, en mettant l'accent sur l'architecture, les choix technologiques et les défis rencontrés lors du développement. Le lecteur découvrira comment les différentes composantes s'articulent pour offrir une expérience de prise de notes vocale innovante, performante et sécurisée.
 
 \section{Introduction}
-Cette partie du mémoire est consacrée à l'implémentation et au développement de l'application VoiceNotion. Nous allons détailler l'architecture technique, les technologies utilisées, et les différentes composantes de notre solution. VoiceNotion est une application de prise de notes vocale qui combine une interface web responsive et une application mobile, toutes deux partageant une base de données commune et des fonctionnalités similaires.
+Cette partie du mémoire est consacrée à l'implémentation et au développement de l'application SayNote. Nous allons détailler l'architecture technique, les technologies utilisées, et les différentes composantes de notre solution. SayNote est une application de prise de notes vocale qui combine une interface web responsive et une application mobile, toutes deux partageant une base de données commune et des fonctionnalités similaires.
 
 Notre approche de développement a été guidée par les principes de modularité, de réutilisabilité et d'expérience utilisateur fluide. Nous avons adopté des technologies modernes pour garantir la performance, la sécurité et l'évolutivité de notre solution.
 
 \section{Architecture globale}
-L'architecture de VoiceNotion est construite autour d'une approche multi-plateforme avec un backend commun. Cette architecture permet de maintenir une expérience utilisateur cohérente tout en optimisant le développement pour chaque plateforme.
+L'architecture de SayNote est construite autour d'une approche multi-plateforme avec un backend commun. Cette architecture permet de maintenir une expérience utilisateur cohérente tout en optimisant le développement pour chaque plateforme.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{assets/docs/golobal-diagrams/global-architecture.jpg}
-    \caption{Architecture globale de VoiceNotion}
+    \caption{Architecture globale de SayNote}
     \label{fig:global-architecture}
 \end{figure}
 
@@ -33,7 +33,7 @@ L'architecture de VoiceNotion est construite autour d'une approche multi-platefo
 \end{itemize}
 
 \subsection{Flux de données}
-Le flux de données dans VoiceNotion suit un modèle client-serveur avec synchronisation en temps réel:
+Le flux de données dans SayNote suit un modèle client-serveur avec synchronisation en temps réel:
 \begin{enumerate}
     \item L'utilisateur interagit avec l'application (web ou mobile)
     \item Les requêtes sont envoyées au backend Supabase\resref{res:supabase} via des API sécurisées
@@ -43,7 +43,7 @@ Le flux de données dans VoiceNotion suit un modèle client-serveur avec synchro
 
 \section{Environnement de developpement}
 \subsection{Materiels}
-Le developpement de VoiceNotion a ete realise sur les equipements suivants:
+Le developpement de SayNote a ete realise sur les equipements suivants:
 \begin{itemize}
     \item MacBook Pro M1 (16GB RAM, 512GB SSD)
     \item iPhone 13 Pro (pour les tests iOS)
@@ -60,7 +60,7 @@ Le developpement de VoiceNotion a ete realise sur les equipements suivants:
 \end{wrapfigure}
 Visual Studio Code est un editeur de code source leger mais puissant qui s'execute sur votre bureau et est disponible pour Windows, macOS et Linux. Il est fourni avec un support integre pour JavaScript, TypeScript\resref{res:typescript} et Node.js et dispose d'un riche ecosysteme d'extensions pour d'autres langages et environnements de developpement.
 
-Visual Studio Code a ete notre IDE principal pour le developpement de VoiceNotion. Nous avons utilise plusieurs extensions pour ameliorer notre productivite:
+Visual Studio Code a ete notre IDE principal pour le developpement de SayNote. Nous avons utilise plusieurs extensions pour ameliorer notre productivite:
 
 \begin{itemize}
     \item ESLint\resref{res:eslint}: Pour la verification du code JavaScript/TypeScript\resref{res:typescript}
@@ -79,7 +79,7 @@ GitHub est une plateforme de developpement collaboratif basee sur Git, un system
 
 Sur GitHub, les developpeurs peuvent creer des depots pour stocker leur code source, collaborer avec d'autres developpeurs sur des projets, suivre et gerer les problemes, et faciliter le processus de developpement via des fonctionnalites comme les pull requests, les actions, et plus encore.
 
-Pour VoiceNotion, nous avons utilise GitHub pour:
+Pour SayNote, nous avons utilise GitHub pour:
 \begin{itemize}
     \item Gestion du code source avec branches pour chaque fonctionnalite
     \item Organisation du travail d'equipe via les issues et les projets
@@ -101,7 +101,7 @@ Avec Zod, nous pouvons facilement definir des regles de validation complexes pou
 
 Zod favorise le typage fort et l'inference de types, ce qui en fait un choix ideal pour les projets TypeScript\resref{res:typescript}. Il s'integre egalement parfaitement avec des frameworks et des bibliotheques populaires comme React et Express. 
 
-Dans VoiceNotion, nous utilisons Zod pour:
+Dans SayNote, nous utilisons Zod pour:
 \begin{itemize}
     \item Valider les donnees des formulaires utilisateur
     \item Verifier l'integrite des donnees provenant de l'API
@@ -160,7 +160,7 @@ Illustrator utilise des vecteurs pour creer des images, ce qui signifie que les 
 Nous avons utilise Adobe Illustrator pour creer les elements graphiques vectoriels de notre identite visuelle:
 
 \begin{itemize}
-    \item Logo VoiceNotion et ses variantes
+    \item Logo SayNote et ses variantes
     \item Icones personnalisees
     \item Illustrations pour le site web et l'application
     \item Materiel marketing (bannieres, visuels pour reseaux sociaux)
@@ -215,11 +215,11 @@ Avec Supabase\resref{res:supabase}, nous avons pu implementer rapidement des fon
 
 % Explication brève avant chaque figure
 \noindent
-\textit{La figure suivante illustre les fonctionnalites principales de Supabase\resref{res:supabase} pour VoiceNotion}
+\textit{La figure suivante illustre les fonctionnalites principales de Supabase\resref{res:supabase} pour SayNote}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{assets/docs/golobal-diagrams/supabase-feature.png}
-\caption{Fonctionnalites principales de Supabase\resref{res:supabase} pour VoiceNotion}
+\caption{Fonctionnalites principales de Supabase\resref{res:supabase} pour SayNote}
 \label{fig:supabase-feature}
 \end{figure}
 
@@ -228,7 +228,7 @@ Avec Supabase\resref{res:supabase}, nous avons pu implementer rapidement des fon
 
 Supabase\resref{res:supabase} fournit une solution d'authentification complète et facile à intégrer. Elle prend en charge une variété de méthodes d'authentification, y compris l'email et le mot de passe, les fournisseurs OAuth (comme Google, GitHub, etc.), et les liens magiques.
 
-Pour VoiceNotion, nous avons utilisé l'authentification par email et mot de passe de Supabase\resref{res:supabase} pour sécuriser l'accès des utilisateurs. Le processus est simple :
+Pour SayNote, nous avons utilisé l'authentification par email et mot de passe de Supabase\resref{res:supabase} pour sécuriser l'accès des utilisateurs. Le processus est simple :
 \begin{itemize}
     \item \textbf{Inscription (Sign Up):} Un nouvel utilisateur crée un compte avec son adresse email et un mot de passe. Supabase\resref{res:supabase} gère la création de l'utilisateur dans sa base de données d'authentification et envoie un email de confirmation.
     \item \textbf{Connexion (Sign In):} Un utilisateur existant se connecte avec ses identifiants. Supabase\resref{res:supabase} vérifie les informations et, en cas de succès, renvoie un JSON Web Token (JWT).
@@ -334,7 +334,7 @@ export default function AuthForm({ mode = "login" }) {
 \begin{minipage}{0.7\textwidth}
 React Native\resref{res:reactnative} est un framework de developpement d'applications mobiles cree par Facebook (Meta) qui permet de construire des applications natives pour Android et iOS a partir d'une base de code JavaScript/React commune. Il offre une approche "apprendre une fois, ecrire partout" pour le developpement mobile.
 
-Les principales caracteristiques de React Native\resref{res:reactnative} qui ont guide notre choix pour VoiceNotion sont:
+Les principales caracteristiques de React Native\resref{res:reactnative} qui ont guide notre choix pour SayNote sont:
 
 \begin{itemize}
     \item \textbf{Composants natifs}: React Native\resref{res:reactnative} compile le code JavaScript en composants natifs, offrant des performances proches des applications natives
@@ -344,7 +344,7 @@ Les principales caracteristiques de React Native\resref{res:reactnative} qui ont
     \item \textbf{Approche declarative}: Interface utilisateur construite de maniere declarative, similaire a React
 \end{itemize}
 
-React Native\resref{res:reactnative} nous a permis de developper l'application mobile VoiceNotion pour iOS et Android a partir d'une seule base de code, tout en offrant une experience utilisateur native et performante sur chaque plateforme.
+React Native\resref{res:reactnative} nous a permis de developper l'application mobile SayNote pour iOS et Android a partir d'une seule base de code, tout en offrant une experience utilisateur native et performante sur chaque plateforme.
 \end{minipage}%
 \hfill
 \begin{minipage}{0.25\textwidth}
@@ -357,8 +357,8 @@ React Native\resref{res:reactnative} nous a permis de developper l'application m
 // app.json
 {
   "expo": {
-    "name": "VoiceNotion",
-    "slug": "voicenotion",
+    "name": "SayNote",
+    "slug": "SayNote",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -371,20 +371,20 @@ React Native\resref{res:reactnative} nous a permis de developper l'application m
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.voicenotion.app"
+      "bundleIdentifier": "com.SayNote.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.voicenotion.app"
+      "package": "com.SayNote.app"
     },
     "plugins": [
       [
         "expo-av",
         {
-          "microphonePermission": "Autoriser VoiceNotion a acceder a votre microphone."
+          "microphonePermission": "Autoriser SayNote a acceder a votre microphone."
         }
       ]
     ]
@@ -397,7 +397,7 @@ React Native\resref{res:reactnative} nous a permis de developper l'application m
 \begin{minipage}{0.7\textwidth}
 Expo\resref{res:expo} est une plateforme et un ensemble d'outils construits autour de React Native\resref{res:reactnative} qui simplifient considerablement le developpement, le test et le deploiement d'applications mobiles. Il offre une approche "batteries included" pour React Native\resref{res:reactnative}.
 
-Les avantages d'Expo\resref{res:expo} qui ont guide notre choix pour VoiceNotion sont:
+Les avantages d'Expo\resref{res:expo} qui ont guide notre choix pour SayNote sont:
 
 \begin{itemize}
     \item \textbf{Configuration simplifiee}: Pas besoin de configurer manuellement le SDK natif d'Android ou iOS
@@ -407,7 +407,7 @@ Les avantages d'Expo\resref{res:expo} qui ont guide notre choix pour VoiceNotion
     \item \textbf{Over-the-air updates}: Possibilite de deployer des mises a jour sans passer par les App Stores
 \end{itemize}
 
-Expo\resref{res:expo} nous a permis d'accelerer considerablement le developpement de l'application mobile VoiceNotion, en simplifiant l'acces aux fonctionnalites natives et en offrant un flux de travail optimise du developpement au deploiement.
+Expo\resref{res:expo} nous a permis d'accelerer considerablement le developpement de l'application mobile SayNote, en simplifiant l'acces aux fonctionnalites natives et en offrant un flux de travail optimise du developpement au deploiement.
 \end{minipage}%
 \hfill
 \begin{minipage}{0.25\textwidth}
@@ -484,7 +484,7 @@ Expo\resref{res:expo} nous a permis d'accelerer considerablement le developpemen
 \subsubsection{Next.js\resref{res:nextjs}}
 Next.js\resref{res:nextjs} est un framework open-source basé sur React, conçu pour le développement d'applications web modernes. Il permet de créer des applications rendues côté serveur (SSR), des sites statiques (SSG), et des applications web monopages (SPA) avec une expérience de développement optimisée.
 
-Pour VoiceNotion, nous avons choisi Next.js pour ses avantages clés:
+Pour SayNote, nous avons choisi Next.js pour ses avantages clés:
 \begin{itemize}
     \item \textbf{Rendu côté serveur et statique}: Améliore les performances et le SEO.
     \item \textbf{Routing basé sur le système de fichiers}: Simplifie la navigation et l'organisation des pages.
@@ -499,7 +499,7 @@ Pour VoiceNotion, nous avons choisi Next.js pour ses avantages clés:
 \end{wrapfigure}
 TypeScript\resref{res:typescript} est un sur-ensemble de JavaScript qui ajoute des types statiques. Il est developpe et maintenu par Microsoft.
 
-Les avantages de TypeScript\resref{res:typescript} que nous avons exploites dans VoiceNotion:
+Les avantages de TypeScript\resref{res:typescript} que nous avons exploites dans SayNote:
 \begin{itemize}
     \item Langage type qui permet de detecter les erreurs lors de la compilation
     \item Compilation en differentes versions ECMAScript a partir de la version 3
@@ -508,7 +508,7 @@ Les avantages de TypeScript\resref{res:typescript} que nous avons exploites dans
 \end{itemize}
 
 \subsection{Interface de l'Application Web}
-Cette section présente les différentes interfaces de l'application web VoiceNotion, illustrant le parcours de l'utilisateur, de l'authentification à la gestion des notes.
+Cette section présente les différentes interfaces de l'application web SayNote, illustrant le parcours de l'utilisateur, de l'authentification à la gestion des notes.
 
 \subsubsection{Authentification}
 \noindent
@@ -604,7 +604,7 @@ Cette section présente les différentes interfaces de l'application web VoiceNo
 \section{Integration de la reconnaissance vocale}
 \subsection{Gemini API}
 \begin{minipage}{0.7\textwidth}
-L'API Gemini de Google est un modele d'IA multimodal avance qui nous permet d'integrer des capacites de traitement du langage naturel et de comprehension contextuelle dans VoiceNotion. 
+L'API Gemini de Google est un modele d'IA multimodal avance qui nous permet d'integrer des capacites de traitement du langage naturel et de comprehension contextuelle dans SayNote. 
 
 Cette API est au coeur de notre fonctionnalite de reconnaissance vocale et nous l'utilisons pour deux fonctions principales:
 \begin{itemize}
@@ -620,7 +620,7 @@ Gemini nous offre plusieurs avantages cles:
     \item \textbf{Integration simple}: API REST facile a integrer dans nos applications web et mobile
 \end{itemize}
 
-Grace a Gemini, VoiceNotion peut offrir une experience de dictee vocale naturelle et intuitive, permettant aux utilisateurs de creer et de modifier du contenu a l'aide de commandes vocales complexes.
+Grace a Gemini, SayNote peut offrir une experience de dictee vocale naturelle et intuitive, permettant aux utilisateurs de creer et de modifier du contenu a l'aide de commandes vocales complexes.
 \end{minipage}%
 \hfill
 \begin{minipage}{0.25\textwidth}
@@ -630,16 +630,16 @@ Grace a Gemini, VoiceNotion peut offrir une experience de dictee vocale naturell
 
 % Explication brève avant chaque figure
 \noindent
-\textit{La figure suivante illustre le diagramme de l'API Gemini dons VoiceNotion}
+\textit{La figure suivante illustre le diagramme de l'API Gemini dons SayNote}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth]{assets/docs/golobal-diagrams/gemini-api-diagram.png}
-\caption{Integration de l'API Gemini dans VoiceNotion}
+\caption{Integration de l'API Gemini dans SayNote}
 \label{fig:gemini-api}
 \end{figure}
 
 \subsection{Flux de traitement des commandes vocales}
-Le traitement des commandes vocales dans VoiceNotion suit un flux bien defini:
+Le traitement des commandes vocales dans SayNote suit un flux bien defini:
 \begin{enumerate}
     \item Capture de l'audio via le microphone de l'appareil
     \item Conversion de l'audio en texte via l'API Gemini
@@ -650,7 +650,7 @@ Le traitement des commandes vocales dans VoiceNotion suit un flux bien defini:
 
 % Explication brève avant chaque figure
 \noindent
-\textit{La figure suivante illustre le flux de traitement des commandes vocales dans VoiceNotion}
+\textit{La figure suivante illustre le flux de traitement des commandes vocales dans SayNote}
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.6\textwidth]{assets/docs/golobal-diagrams/flux-des-commende-vocal.png}
@@ -661,7 +661,7 @@ Le traitement des commandes vocales dans VoiceNotion suit un flux bien defini:
 
 \section{Tests et assurance qualite}
 \subsection{Strategie de test}
-Notre strategie de test pour VoiceNotion comprend plusieurs niveaux:
+Notre strategie de test pour SayNote comprend plusieurs niveaux:
 \begin{itemize}
     \item \textbf{Tests unitaires}: Verification du comportement des composants individuels
     \item \textbf{Tests d'integration}: Validation des interactions entre les differentes parties du systeme
@@ -728,7 +728,7 @@ Cette combinaison nous permet un cycle CI/CD unifié : GitHub Actions\resref{res
 
 \section{Securite et protection des donnees}
 \subsection{Authentification et autorisation}
-La securite de VoiceNotion repose sur plusieurs mecanismes:
+La securite de SayNote repose sur plusieurs mecanismes:
 \begin{itemize}
     \item \textbf{Authentification multi-facteurs}: Pour une securite renforcee des comptes
     \item \textbf{JWT (JSON Web Tokens)}: Pour la gestion des sessions
@@ -743,7 +743,7 @@ La securite de VoiceNotion repose sur plusieurs mecanismes:
 \end{itemize}
 
 \subsection{Conformite RGPD}
-VoiceNotion est concu dans le respect du Reglement General sur la Protection des Donnees:
+SayNote est concu dans le respect du Reglement General sur la Protection des Donnees:
 \begin{itemize}
     \item \textbf{Consentement explicite}: Pour la collecte et l'utilisation des donnees
     \item \textbf{Droit a l'oubli}: Possibilite de supprimer toutes les donnees utilisateur
@@ -752,7 +752,7 @@ VoiceNotion est concu dans le respect du Reglement General sur la Protection des
 
 \section{Defis techniques et solutions}
 \subsection{Defis rencontres}
-Durant le developpement de VoiceNotion, nous avons rencontre plusieurs defis techniques:
+Durant le developpement de SayNote, nous avons rencontre plusieurs defis techniques:
 \begin{itemize}
     \item \textbf{Precision de la reconnaissance vocale}: Particulierement dans des environnements bruyants
     \item \textbf{Synchronisation en temps reel}: Entre les differents appareils d'un utilisateur
@@ -771,7 +771,7 @@ Durant le developpement de VoiceNotion, nous avons rencontre plusieurs defis tec
 
 
 \section{Conclusion}
-L'implementation de VoiceNotion a necessite l'integration de nombreuses technologies modernes et la resolution de defis techniques complexes. L'architecture choisie nous a permis de creer une application performante, securisee et evolutive, disponible sur le web et sur mobile.
+L'implementation de SayNote a necessite l'integration de nombreuses technologies modernes et la resolution de defis techniques complexes. L'architecture choisie nous a permis de creer une application performante, securisee et evolutive, disponible sur le web et sur mobile.
 
 La combinaison de React, Next.js\resref{res:nextjs}, React Native\resref{res:reactnative} et Supabase\resref{res:supabase} nous a fourni une base solide pour construire notre solution, tandis que l'integration de l'API Gemini a rendu possible la fonctionnalite centrale de reconnaissance vocale.
 
@@ -784,4 +784,4 @@ Les prochaines etapes de developpement incluront l'amelioration continue de la p
 \end{center}
 
 \noindent
-En résumé, ce chapitre a détaillé l'ensemble des choix techniques, des architectures et des solutions mises en œuvre pour concrétiser VoiceNotion. L'intégration harmonieuse des différentes technologies et la résolution des défis techniques témoignent de la robustesse et de la modernité de l'application. Ces fondations solides ouvrent la voie à de futures évolutions et améliorations, qui seront abordées dans les perspectives finales du document.
+En résumé, ce chapitre a détaillé l'ensemble des choix techniques, des architectures et des solutions mises en œuvre pour concrétiser SayNote. L'intégration harmonieuse des différentes technologies et la résolution des défis techniques témoignent de la robustesse et de la modernité de l'application. Ces fondations solides ouvrent la voie à de futures évolutions et améliorations, qui seront abordées dans les perspectives finales du document.
