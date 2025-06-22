@@ -4,7 +4,7 @@
 all: pdf
 
 # Variables
-MAIN = voicenotion_template
+MAIN = main
 DIAGRAMS = voicenotion_diagrams
 COMMANDS = voicenotion_commands
 TOC_STRUCTURE = voicenotion_toc_structure

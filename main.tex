@@ -10,6 +10,15 @@
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{hyperref}
+\usepackage{enumitem}
+% Disable red link borders in contents/figures
+\hypersetup{
+  hidelinks,
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  citecolor=black
+}
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage[listings]{tcolorbox}
@@ -19,9 +28,45 @@
 \usepackage{listings}
 \usepackage{caption}
 \definecolor{voicenotionLightGray}{RGB}{240,240,240}
+% Dark background color for code snippets
+\definecolor{codebg}{RGB}{30,30,30}
+% Global style for all listings
+% macros
+\newcommand{\resref}[1]{\hyperref[#1]{[\ref*{#1}]}}
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize\color{white},
+  backgroundcolor=\color{codebg},
+  keywordstyle=\color{cyan},
+  commentstyle=\color{green!70},
+  stringstyle=\color{yellow},
+  numbers=left,
+  numberstyle=\tiny\color{gray!50},
+  breaklines=true,
+  columns=fullflexible
+}
 
 % Define a simple codebox environment for code snippets
-\newtcblisting{codebox}{colback=gray!10!white, colframe=gray!80!black, listing only, left=1mm, right=1mm, top=1mm, bottom=1mm, boxrule=0.5pt, arc=2pt, fonttitle=\bfseries, title=Code, listing options={basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible}}
+\newtcblisting{codebox}{%
+  listing only,
+  colback=codebg,
+  colframe=codebg!80,
+  left=1mm, right=1mm, top=1mm, bottom=1mm,
+  boxrule=0.5pt, arc=2pt,
+  fonttitle=\bfseries,
+  title=Code,
+  listing options={%
+    basicstyle=\ttfamily\footnotesize\color{white},
+    breaklines=true,
+    columns=fullflexible,
+    keywordstyle=\color{cyan},
+    commentstyle=\color{green!70},
+    stringstyle=\color{yellow},
+    numbers=left,
+    numberstyle=\tiny\color{gray!50},
+    backgroundcolor=\color{codebg}
+  }
+}
 \geometry{margin=2.5cm}
 
 % --- Title ---
@@ -63,7 +108,6 @@
     {\large Université M'hamed Bougara - Boumerdès} \\
     \vspace{0.6cm}
     
-    % University logo
     \includegraphics[width=4.5cm]{assets/docs/university_logo.png} \\
     \vspace{0.6cm}
     
@@ -127,7 +171,7 @@
 % --- Table of Contents, Figures, Tables ---
 \tableofcontents
 \listoffigures
-\listoftables
+% \listoftables
 
 % --- General Introduction ---
 \chapter*{Introduction générale}
@@ -154,13 +198,47 @@
 \chapter{Conception}
 \input{conception}
 
+
 % --- Chapter 2: Implementation ---
 \chapter{Implémentation}
 \input{voicenotion_implementation}
 
 % --- General Conclusion ---
-\chapter*{Conclusion générale}
-\addcontentsline{toc}{chapter}{Conclusion générale}
+\section*{Conclusion générale}
+\addcontentsline{toc}{section}{Conclusion générale}
 \input{conclusion}
+
+% --- Online Resources ---
+\chapter*{Ressources en ligne}
+\addcontentsline{toc}{chapter}{Ressources en ligne}
+Voici une liste non exhaustive de documents et articles de référence consultés durant ce travail :
+
+\begin{enumerate}[label=\arabic*., leftmargin=*]
+  \item \href{https://supabase.com/docs}{Supabase Documentation}\label{res:supabase}
+  \item \href{https://nextjs.org/docs}{Next.js Documentation}\label{res:nextjs}
+  \item \href{https://reactnative.dev/docs/getting-started}{React Native Docs}\label{res:reactnative}
+  \item \href{https://docs.expo.dev}{Expo Documentation}\label{res:expo}
+  \item \href{https://docs.netlify.com}{Netlify Docs}\label{res:netlify}
+  \item \href{https://www.prisma.io/docs}{Prisma ORM Docs}\label{res:prisma}
+  \item \href{https://www.postgresql.org/docs/}{PostgreSQL Official Docs}\label{res:postgresql}
+  \item \href{https://figma.com/resources/learn-design}{Figma Design Guides}\label{res:figma}
+  \item \href{https://jestjs.io/docs}{Jest Testing Framework Docs}\label{res:jest}
+  \item \href{https://docs.cypress.io}{Cypress End-to-End Testing}\label{res:cypress}
+  \item \href{https://www.typescriptlang.org/docs}{TypeScript Handbook}\label{res:typescript}
+  \item \href{https://nodejs.org/en/docs}{Node.js Documentation}\label{res:node}
+  \item \href{https://docs.github.com/en/actions}{GitHub Actions Docs}\label{res:githubactions}
+  \item \href{https://jwt.io/introduction}{JWT.io – JSON Web Tokens}\label{res:jwt}
+  \item \href{https://owasp.org/www-project-top-ten/}{OWASP Top Ten Security Risks}\label{res:owasp}
+  \item \href{https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide}{MDN JavaScript Guide}\label{res:mdn}
+  \item \href{https://cloud.google.com/architecture}{Google Cloud Architecture Center}\label{res:gcp}
+  \item \href{https://docs.docker.com}{Docker Documentation}\label{res:docker}
+  \item \href{https://eslint.org/docs/latest}{ESLint Documentation}\label{res:eslint}
+  \item \href{https://prettier.io/docs/en/index.html}{Prettier Formatter Docs}\label{res:prettier}
+  \item \href{https://tailwindcss.com/docs}{Tailwind CSS Docs}\label{res:tailwind}
+  \item \href{https://testing-library.com/docs/react-testing-library/intro}{React Testing Library}\label{res:reacttestinglibrary}
+  \item \href{https://developer.chrome.com/docs/lighthouse/}{Google Lighthouse Docs}\label{res:lighthouse}
+  \item \href{https://wix.github.io/Detox/docs/api}{Detox Testing Docs}\label{res:detox}
+  \item \href{https://yjs.dev/}{Yjs CRDT Framework}\label{res:crdt}
+\end{enumerate}
 
 \end{document}
