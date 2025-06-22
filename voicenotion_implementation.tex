@@ -17,14 +17,11 @@ Notre approche de développement a été guidée par les principes de modularit�
 \section{Architecture globale}
 L'architecture de VoiceNotion est construite autour d'une approche multi-plateforme avec un backend commun. Cette architecture permet de maintenir une expérience utilisateur cohérente tout en optimisant le développement pour chaque plateforme.
 
-% Explication brève avant chaque figure
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
-\centering
-\textit{Image manquante: Architecture globale de VoiceNotion}
-\caption{Architecture globale de VoiceNotion. Ce schéma technique présente la structure générale du système, mettant en avant l'intégration entre le frontend, le backend et les services tiers.}
-\label{fig:global-architecture}
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/docs/golobal-diagrams/global-architecture.jpg}
+    \caption{Architecture globale de VoiceNotion}
+    \label{fig:global-architecture}
 \end{figure}
 
 \subsection{Composants principaux}
@@ -91,24 +88,7 @@ Pour VoiceNotion, nous avons utilise GitHub pour:
     \item Documentation du projet dans le wiki et le README
 \end{itemize}
 
-\subsubsection{TypeScript\resref{res:typescript}}
-\begin{wrapfigure}{r}{0.3\textwidth}
-    \centering
-    \includegraphics[width=0.25\textwidth]{assets/docs/typescript.png}
-\end{wrapfigure}
-TypeScript\resref{res:typescript} est un sur-ensemble de JavaScript developpe par Microsoft qui ajoute des types statiques optionnels au langage. Il est concu pour le developpement d'applications a grande echelle et se compile en JavaScript standard.
 
-Les avantages de TypeScript\resref{res:typescript} que nous avons exploites dans VoiceNotion:
-\begin{itemize}
-    \item Langage type qui permet de detecter les erreurs lors de la compilation
-    \item Compilation en differentes versions ECMAScript a partir de la version 3
-    \item De nombreux outils disponibles et une integration parfaite avec VS Code
-    \item Un langage oriente objet avec l'introduction du typage, de l'heritage et des notions de public et private
-    \item La transition du JavaScript vers TypeScript\resref{res:typescript} peut se faire progressivement
-    \item La transition inverse tres simple grace a la transpilation en ECMAScript
-\end{itemize}
-
-TypeScript\resref{res:typescript} nous a permis de developper un code plus robuste et plus maintenable, particulierement important pour une application comme VoiceNotion qui necessite une gestion complexe des interactions utilisateur et des donnees.
 
 \subsubsection{Zod}
 \begin{wrapfigure}{r}{0.3\textwidth}
@@ -168,8 +148,6 @@ Figma est un outil de conception d'interface utilisateur base sur le cloud qui p
 \end{itemize}
 
 L'interface intuitive de Figma et ses fonctionnalites avancees ont grandement facilite le processus de conception, permettant a notre equipe de travailler efficacement meme a distance.
-
-
 \subsection{Adobe Illustrator}
 \begin{wrapfigure}{r}{0.3\textwidth}
     \centering
@@ -190,10 +168,10 @@ Nous avons utilise Adobe Illustrator pour creer les elements graphiques vectorie
 
 % Explication brève avant chaque figure
 \noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\textit{La figure suivante illustre la creation des elements graphiques avec Adobe Illustrator}
 \begin{figure}[H]
 \centering
-\textit{Image manquante: Création des éléments graphiques avec Adobe Illustrator}
+\includegraphics[width=0.8\textwidth]{assets/docs/working-ulistrator.jpg}
 \caption{Creation des elements graphiques avec Adobe Illustrator}
 \label{fig:illustrator-assets}
 \end{figure}
@@ -237,55 +215,34 @@ Avec Supabase\resref{res:supabase}, nous avons pu implementer rapidement des fon
 
 % Explication brève avant chaque figure
 \noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\textit{La figure suivante illustre les fonctionnalites principales de Supabase\resref{res:supabase} pour VoiceNotion}
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{assets/docs/supabase_dashboard.png}
-\caption{Dashboard Supabase\resref{res:supabase} pour VoiceNotion}
-\label{fig:supabase-dashboard}
+\includegraphics[width=0.8\textwidth]{assets/docs/golobal-diagrams/supabase-feature.png}
+\caption{Fonctionnalites principales de Supabase\resref{res:supabase} pour VoiceNotion}
+\label{fig:supabase-feature}
 \end{figure}
 
-\begin{codebox}{Configuration Supabase\resref{res:supabase}}
-\begin{lstlisting}
-// lib/supabase.ts
-import { createClient } from '@supabase/supabase-js';
 
-// Recuperation des variables d'environnement
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+\subsection{Authentification avec Supabase\resref{res:supabase}}
 
-// Creation et export du client Supabase\resref{res:supabase}
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
-\end{lstlisting}
-\end{codebox}
+Supabase\resref{res:supabase} fournit une solution d'authentification complète et facile à intégrer. Elle prend en charge une variété de méthodes d'authentification, y compris l'email et le mot de passe, les fournisseurs OAuth (comme Google, GitHub, etc.), et les liens magiques.
 
-\subsection{Prisma\resref{res:prisma}}
-\begin{wrapfigure}{r}{0.3\textwidth}
-    \centering
-    \textit{Logo Prisma\resref{res:prisma} manquant}
-\end{wrapfigure}
-Prisma\resref{res:prisma} est un ORM (Object-Relational Mapping) moderne, mais conçu de manière très différente de ce qui se fait actuellement dans l'industrie. En général, les ORM sont des bibliothèques qui font correspondre les tables de votre base de données aux classes du langage que vous utilisez pour écrire votre programme.
+Pour VoiceNotion, nous avons utilisé l'authentification par email et mot de passe de Supabase\resref{res:supabase} pour sécuriser l'accès des utilisateurs. Le processus est simple :
+\begin{itemize}
+    \item \textbf{Inscription (Sign Up):} Un nouvel utilisateur crée un compte avec son adresse email et un mot de passe. Supabase\resref{res:supabase} gère la création de l'utilisateur dans sa base de données d'authentification et envoie un email de confirmation.
+    \item \textbf{Connexion (Sign In):} Un utilisateur existant se connecte avec ses identifiants. Supabase\resref{res:supabase} vérifie les informations et, en cas de succès, renvoie un JSON Web Token (JWT).
+    \item \textbf{Gestion de session:} Le JWT est utilisé pour authentifier les requêtes API ultérieures, permettant à l'utilisateur d'accéder aux ressources protégées. Supabase\resref{res:supabase} gère automatiquement le rafraîchissement des tokens pour maintenir la session active.
+\end{itemize}
 
-Prisma\resref{res:prisma}, quant à lui, est une boîte à outils de base de données complète. En plus, Prisma\resref{res:prisma} ne souffre pas des nombreux problèmes qui sont communément associés aux ORM traditionnels. L'équipe estime en effet que l'approche des ORM traditionnels conduit à de nombreux problèmes causés par le décalage d'impédance objet-relationnel.
-
-C'est une situation que la conception de Prisma\resref{res:prisma} permet d'éviter. L'un des principaux différenciateurs entre Prisma\resref{res:prisma} et un ORM est son fichier de schéma centralisé et son langage de définition de schéma. Ce schéma définit à la fois les modèles de données de l'application et le schéma de la base de données.
+Cette approche nous a permis de mettre en place un système d'authentification robuste et sécurisé rapidement, sans avoir à gérer la complexité de l'infrastructure sous-jacente.
 
 \begin{figure}[H]
 \centering
-\textit{Schéma logique de la base de données pour VoiceNotion. \newline\textit{Ce schéma technique traduit le modèle conceptuel en tables relationnelles pour l'implémentation.}}
-\label{fig:prisma-schema}
 \end{figure}
 
-Prisma\resref{res:prisma} nous permet de:
 
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-\centering
-\textit{Image manquante: Page d'inscription du site web}
-\caption{Page d'inscription du site VoiceNotion}
-\label{fig:web-signup}
-\end{figure}
-
+\vspace{10em} 
 \captionof{figure}{Composant d'authentification}
 \label{fig:auth-component}
 \begin{lstlisting}[breaklines=true]
@@ -369,27 +326,6 @@ export default function AuthForm({ mode = "login" }) {
 }
 \end{lstlisting}
 
-\subsubsection{Tableau de bord}
-% Explication brève avant chaque figure
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-\centering
-\textit{Image manquante: Tableau de bord de l'application web}
-\caption{Tableau de bord du site VoiceNotion}
-\label{fig:web-dashboard}
-\end{figure}
-
-\subsubsection{Éditeur de notes}
-% Explication brève avant chaque figure
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-\centering
-\textit{Image manquante: Editeur de l'application web}
-\caption{Éditeur de notes avec commandes vocales}
-\label{fig:web-editor}
-\end{figure}
 
 \section{Application mobile}
 \subsection{Technologies et outils utilises}
@@ -478,7 +414,7 @@ Expo\resref{res:expo} nous a permis d'accelerer considerablement le developpemen
 \centering
 \includegraphics[width=0.9\textwidth]{assets/docs/logo_expo.png}
 \end{minipage}
-
+\vspace{20em} 
 \subsection{Interfaces principales}
 
 \subsubsection{Authentification}
@@ -533,13 +469,137 @@ Expo\resref{res:expo} nous a permis d'accelerer considerablement le developpemen
 \subsubsection{Profil utilisateur}
 % Explication brève avant chaque figure
 \noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\textit{La figure suivante illustre  un aspect clé de l'architecture ou de l'implémentation technique du système.}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.4\textwidth]{assets/docs/mobile/profile-screen.png}
     \caption{Écran de profil utilisateur}
     \label{fig:mobile-profile}
 \end{figure}
+
+\section{Application web}
+
+\subsection{Technologies et outils utilisés}
+
+\subsubsection{Next.js\resref{res:nextjs}}
+Next.js\resref{res:nextjs} est un framework open-source basé sur React, conçu pour le développement d'applications web modernes. Il permet de créer des applications rendues côté serveur (SSR), des sites statiques (SSG), et des applications web monopages (SPA) avec une expérience de développement optimisée.
+
+Pour VoiceNotion, nous avons choisi Next.js pour ses avantages clés:
+\begin{itemize}
+    \item \textbf{Rendu côté serveur et statique}: Améliore les performances et le SEO.
+    \item \textbf{Routing basé sur le système de fichiers}: Simplifie la navigation et l'organisation des pages.
+    \item \textbf{Optimisation des images}: Composants d'image intégrés pour un chargement plus rapide.
+    \item \textbf{API Routes}: Permet de créer facilement des points de terminaison d'API.
+\end{itemize}
+
+\subsubsection{TypeScript}
+\begin{wrapfigure}{r}{0.3\textwidth}
+    \centering
+    \includegraphics[width=0.25\textwidth]{assets/docs/typescript.png}
+\end{wrapfigure}
+TypeScript\resref{res:typescript} est un sur-ensemble de JavaScript qui ajoute des types statiques. Il est developpe et maintenu par Microsoft.
+
+Les avantages de TypeScript\resref{res:typescript} que nous avons exploites dans VoiceNotion:
+\begin{itemize}
+    \item Langage type qui permet de detecter les erreurs lors de la compilation
+    \item Compilation en differentes versions ECMAScript a partir de la version 3
+    \item Support de la programmation orientee objet
+    \item Amelioration de la lisibilite et de la maintenance du code
+\end{itemize}
+
+\subsection{Interface de l'Application Web}
+Cette section présente les différentes interfaces de l'application web VoiceNotion, illustrant le parcours de l'utilisateur, de l'authentification à la gestion des notes.
+
+\subsubsection{Authentification}
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/login-page.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/singup.png}
+    \caption{Pages de connexion et d'inscription.}
+    \label{fig:web-auth}
+\end{figure}
+
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/resend-pass.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/resend-succsus.png}
+    \caption{Processus de réinitialisation du mot de passe.}
+    \label{fig:web-reset-pass}
+\end{figure}
+
+\subsubsection{Tableau de Bord et Paramètres}
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/docs/web/dashboard-page.png}
+    \caption{Vue principale du tableau de bord de l'utilisateur.}
+    \label{fig:web-dashboard}
+\end{figure}
+
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/dashboard-appearence-section.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/dashboard-page-security-section.png}
+    \caption{Sections des paramètres : Apparence et Sécurité.}
+    \label{fig:web-settings}
+\end{figure}
+
+\subsubsection{Gestion des Notes}
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/note-homepage.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/note-page-dark.png}
+    \caption{Page d'accueil des notes et éditeur de notes en mode sombre.}
+    \label{fig:web-notes}
+\end{figure}
+
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/on-record.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/sidebar-search.png}
+    \caption{Indicateur d'enregistrement et recherche dans la barre latérale.}
+    \label{fig:web-record-search}
+\end{figure}
+
+\subsubsection{Publication et Partage}
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/publish-seciton.png}
+    \hfill
+    \includegraphics[width=0.45\textwidth]{assets/docs/web/unpublish.png}
+    \caption{Options de publication et d'annulation de la publication d'une note.}
+    \label{fig:web-publish}
+\end{figure}
+
+\noindent
+\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/docs/web/dashboard-public-page-dark.png}
+    \caption{Exemple d'une note publiée accessible publiquement.}
+    \label{fig:web-public-note}
+\end{figure}
+
+
+
 
 \section{Integration de la reconnaissance vocale}
 \subsection{Gemini API}
@@ -570,10 +630,10 @@ Grace a Gemini, VoiceNotion peut offrir une experience de dictee vocale naturell
 
 % Explication brève avant chaque figure
 \noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\textit{La figure suivante illustre le diagramme de l'API Gemini dons VoiceNotion}
 \begin{figure}[H]
 \centering
-\textit{Image manquante: Diagramme de l'API Gemini}
+\includegraphics[width=0.6\textwidth]{assets/docs/golobal-diagrams/gemini-api-diagram.png}
 \caption{Integration de l'API Gemini dans VoiceNotion}
 \label{fig:gemini-api}
 \end{figure}
@@ -590,13 +650,14 @@ Le traitement des commandes vocales dans VoiceNotion suit un flux bien defini:
 
 % Explication brève avant chaque figure
 \noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
+\textit{La figure suivante illustre le flux de traitement des commandes vocales dans VoiceNotion}
 \begin{figure}[H]
 \centering
-\textit{Image manquante: Flux des commandes vocales}
+\includegraphics[width=0.6\textwidth]{assets/docs/golobal-diagrams/flux-des-commende-vocal.png}
 \caption{Flux de traitement des commandes vocales}
 \label{fig:voice-commands-flow}
 \end{figure}
+
 
 \section{Tests et assurance qualite}
 \subsection{Strategie de test}
@@ -707,96 +768,7 @@ Durant le developpement de VoiceNotion, nous avons rencontre plusieurs defis tec
     \item \textbf{Queue de synchronisation}: Pour gerer les modifications hors ligne et les synchroniser lors de la reconnexion
 \end{itemize}
 
-\subsection{Interface de l'Application Web}
-Cette section présente les différentes interfaces de l'application web VoiceNotion, illustrant le parcours de l'utilisateur, de l'authentification à la gestion des notes.
 
-\subsubsection{Authentification}
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/login-page.png}
-    \hfill
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/singup.png}
-    \caption{Pages de connexion et d'inscription.}
-    \label{fig:web-auth}
-\end{figure}
-
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/resend-pass.png}
-    \hfill
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/resend-succsus.png}
-    \caption{Processus de réinitialisation du mot de passe.}
-    \label{fig:web-reset-pass}
-\end{figure}
-
-\subsubsection{Tableau de Bord et Paramètres}
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{assets/docs/web/dashboard-page.png}
-    \caption{Vue principale du tableau de bord de l'utilisateur.}
-    \label{fig:web-dashboard}
-\end{figure}
-
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/dashboard-appearence-section.png}
-    \hfill
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/dashboard-page-security-section.png}
-    \caption{Sections des paramètres : Apparence et Sécurité.}
-    \label{fig:web-settings}
-\end{figure}
-
-\subsubsection{Gestion des Notes}
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/note-homepage.png}
-    \hfill
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/note-page-dark.png}
-    \caption{Page d'accueil des notes et éditeur de notes en mode sombre.}
-    \label{fig:web-notes}
-\end{figure}
-
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/on-record.png}
-    \hfill
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/sidebar-search.png}
-    \caption{Indicateur d'enregistrement et recherche dans la barre latérale.}
-    \label{fig:web-record-search}
-\end{figure}
-
-\subsubsection{Publication et Partage}
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/publish-seciton.png}
-    \hfill
-    \includegraphics[width=0.45\textwidth]{assets/docs/web/unpublish.png}
-    \caption{Options de publication et d'annulation de la publication d'une note.}
-    \label{fig:web-publish}
-\end{figure}
-
-\noindent
-\textit{La figure suivante illustre un aspect clé de l'architecture ou de l'implémentation technique du système.}
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{assets/docs/web/dashboard-public-page-dark.png}
-    \caption{Exemple d'une note publiée accessible publiquement.}
-    \label{fig:web-public-note}
-\end{figure}
 
 \section{Conclusion}
 L'implementation de VoiceNotion a necessite l'integration de nombreuses technologies modernes et la resolution de defis techniques complexes. L'architecture choisie nous a permis de creer une application performante, securisee et evolutive, disponible sur le web et sur mobile.
