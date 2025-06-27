@@ -7,7 +7,7 @@ skinparam ArrowColor #333333
 skinparam shadowing false
 
 ' Define the basic components
-rectangle "Approche Intégrée VoiceNotion" {
+rectangle "Approche Intégrée SayNote" {
   ' Scrum Cycle
   circle "Sprint\nPlanning" as planning #lightblue
   circle "Daily\nStand-up" as daily #lightblue
@@ -61,7 +61,7 @@ increment --> test : Validation
 
 note top
   <b>Intégration Scrum + Design Thinking</b>
-  La méthodologie VoiceNotion combine la structure
+  La méthodologie SayNote combine la structure
   itérative de Scrum (cycles bleus) avec l'approche
   centrée utilisateur du Design Thinking (vert).
 end note

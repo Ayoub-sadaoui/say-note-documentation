@@ -1,24 +1,24 @@
-# Identité Visuelle de VoiceNotion
+# Identité Visuelle de SayNote
 
 ## 1. Nom et Signification
 
 ### Documentation du nom
 
-> ![Saynote – Name Documentation](name-doc.md)
+> ![SayNote – Name Documentation](name-doc.md)
 
 **Introduction**
 
-Le nom Saynote a été soigneusement choisi pour refléter la mission principale de notre application mobile : permettre aux utilisateurs de capturer instantanément leurs idées à l’aide de leur voix.
+Le nom SayNote a été soigneusement choisi pour refléter la mission principale de notre application mobile : permettre aux utilisateurs de capturer instantanément leurs idées à l’aide de leur voix.
 
-Simple, intuitif et signifiant, « Saynote » incarne l’intersection entre la parole et la productivité. C’est plus qu’un nom, c’est une expérience en un mot.
+Simple, intuitif et signifiant, « SayNote » incarne l’intersection entre la parole et la productivité. C’est plus qu’un nom, c’est une expérience en un mot.
 
 **Décomposition du nom**
 
-- **Saynote = Say + Note**
+- **SayNote = Say + Note**
   - **Say** : Interaction vocale, rapidité, facilité, communication naturelle.
   - **Note** : Capture structurée d’idées, rappels, tâches.
 
-> Ensemble, Saynote devient une commande, un comportement et une marque : il suffit de « dire sa note ».
+> Ensemble, SayNote devient une commande, un comportement et une marque : il suffit de « dire sa note ».
 
 **Message et sens**
 
@@ -31,7 +31,7 @@ Simple, intuitif et signifiant, « Saynote » incarne l’intersection entre l
 
 ### Idée et Concept
 
-Le logo VoiceNotion combine une onde vocale stylisée et la forme d’un bloc-notes, symbolisant la fusion entre la saisie vocale et l’organisation des idées. Le dégradé bleu doux évoque le calme et la clarté, tandis que les coins arrondis et le détail du coin replié ajoutent une touche conviviale et moderne.
+Le logo SayNote combine une onde vocale stylisée et la forme d’un bloc-notes, symbolisant la fusion entre la saisie vocale et l’organisation des idées. Le dégradé bleu doux évoque le calme et la clarté, tandis que les coins arrondis et le détail du coin replié ajoutent une touche conviviale et moderne.
 
 ### Documentation et Philosophie
 
@@ -51,11 +51,12 @@ Le logo VoiceNotion combine une onde vocale stylisée et la forme d’un bloc-no
 
 ## 3. Palette de Couleurs
 
-La palette de VoiceNotion a été élaborée pour évoquer la confiance, la clarté et la modernité :
+La palette de SayNote a été élaborée pour évoquer la confiance, la clarté et la modernité :
 
 - ![Palette de couleurs](pictures/color-palette.png)
 
 **Principale :**
+
 - Bleu primaire : `#4385F6` (clarté, confiance, productivité)
 - Bleus profonds : `#1E6DE0`, `#0043A5`, `#002E72` (structure, stabilité)
 - Accent clair : `#CFE3FF` (fraîcheur, accessibilité)
@@ -69,18 +70,20 @@ Cette combinaison crée une identité visuelle harmonieuse, professionnelle et a
 - ![Exemple de polices](pictures/fonts-infromation-toextract.png)
 
 **Titres :**
+
 - Police sans-serif, géométrique, épaisse, pour la clarté et la structure.
 
 **Corps de texte :**
+
 - Police sans-serif, arrondie et chaleureuse, pour la lisibilité et l’accessibilité.
 
-L’association des deux polices crée un équilibre entre structure et douceur, fidèle à l’esprit VoiceNotion.
+L’association des deux polices crée un équilibre entre structure et douceur, fidèle à l’esprit SayNote.
 
 ---
 
 ## 5. Papeterie & Supports Visuels
 
-La papeterie VoiceNotion comprend cartes de visite, en-têtes, blocs-notes et enveloppes, tous conçus dans la continuité de l’identité visuelle :
+La papeterie SayNote comprend cartes de visite, en-têtes, blocs-notes et enveloppes, tous conçus dans la continuité de l’identité visuelle :
 
 - ![Papeterie](pictures/big-banner.jpg)
 - ![Papeterie (variante)](pictures/big-banner-directly .jpg)
@@ -91,7 +94,7 @@ Ces supports renforcent le professionnalisme et la cohérence de la marque dans 
 
 ## 6. Poster
 
-Le poster VoiceNotion est conçu pour attirer l’attention et communiquer l’essence de la marque :
+Le poster SayNote est conçu pour attirer l’attention et communiquer l’essence de la marque :
 
 - Mise en page impactante, couleurs de la marque, messages courts et clairs.
 - Deux versions existent : l’une axée sur la productivité vocale, l’autre sur la clarté et l’IA.
@@ -107,4 +110,4 @@ La bannière reprend les codes visuels de la marque pour une communication évé
 
 ---
 
-> Ce document synthétise l’identité visuelle de VoiceNotion, en s’appuyant sur la structure et l’exigence de présentation du chapitre « Identité visuelle » du rapport de référence, tout en valorisant vos contenus originaux et vos visuels.
+> Ce document synthétise l’identité visuelle de SayNote, en s’appuyant sur la structure et l’exigence de présentation du chapitre « Identité visuelle » du rapport de référence, tout en valorisant vos contenus originaux et vos visuels.

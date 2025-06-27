@@ -8,9 +8,9 @@ skinparam ArrowColor #666666
 skinparam RectangleBackgroundColor #f5f5f5
 skinparam RectangleBorderColor #999999
 
-title Insights clés de la recherche utilisateur VoiceNotion
+title Insights clés de la recherche utilisateur SayNote
 
-rectangle "Insights de recherche VoiceNotion" as insights {
+rectangle "Insights de recherche SayNote" as insights {
   card "Saisie manuelle\nlimitée" as input #lightblue {
     rectangle "78%" as inputStat #87CEFA
     note bottom of inputStat
@@ -65,7 +65,7 @@ rectangle "Insights de recherche VoiceNotion" as insights {
 
 note bottom of insights
   <b>Principaux enseignements</b>
-  Ces insights ont guidé la conception de VoiceNotion en mettant 
+  Ces insights ont guidé la conception de SayNote en mettant 
   l'accent sur la rapidité de saisie vocale, la simplicité d'utilisation,
   et l'organisation automatique des notes.
 end note

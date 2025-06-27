@@ -1,8 +1,8 @@
-# VoiceNotion: Comprehensive Project Documentation
+# SayNote: Comprehensive Project Documentation
 
 ## 1. Business Model Canvas
 
-This section outlines the business model for VoiceNotion, providing a strategic overview of the application's value proposition, customer segments, and revenue streams.
+This section outlines the business model for SayNote, providing a strategic overview of the application's value proposition, customer segments, and revenue streams.
 
 | Category                   | Description                                                                                                                             |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -18,7 +18,7 @@ This section outlines the business model for VoiceNotion, providing a strategic 
 
 ## 2. Core Features & Functionalities
 
-This section provides a detailed breakdown of VoiceNotion's key features.
+This section provides a detailed breakdown of SayNote's key features.
 
 ### Note Management
 

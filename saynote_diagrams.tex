@@ -1,5 +1,5 @@
-% VoiceNotion Diagrams
-% This file contains TikZ diagrams for the VoiceNotion documentation
+% SayNote Diagrams
+% This file contains TikZ diagrams for the SayNote documentation
 
 \chapter{Architecture Diagrams}
 
@@ -9,28 +9,28 @@
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        block/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionLightGray},
-        cloud/.style={draw, ellipse, fill=voicenotionLightGray, minimum width=2.5cm, minimum height=1.5cm, align=center},
-        arrow/.style={->, >=stealth, thick, color=voicenotionBlue},
+        block/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=SayNoteLightGray},
+        cloud/.style={draw, ellipse, fill=SayNoteLightGray, minimum width=2.5cm, minimum height=1.5cm, align=center},
+        arrow/.style={->, >=stealth, thick, color=SayNoteBlue},
         every node/.style={font=\small}
     ]
     
     % Client Layer
-    \node[block, fill=voicenotionBlue!20] (mobile) at (0,0) {Mobile Application\\(Expo/React Native)};
+    \node[block, fill=SayNoteBlue!20] (mobile) at (0,0) {Mobile Application\\(Expo/React Native)};
     
     % API Layer
-    \node[block, fill=voicenotionBlue!30] (api) at (0,-2.5) {RESTful API\\(Node.js)};
+    \node[block, fill=SayNoteBlue!30] (api) at (0,-2.5) {RESTful API\\(Node.js)};
     
     % Services
-    \node[block, fill=voicenotionBlue!40] (auth) at (-4,-5) {Authentication\\Service};
-    \node[block, fill=voicenotionBlue!40] (notes) at (0,-5) {Notes\\Service};
-    \node[block, fill=voicenotionBlue!40] (voice) at (4,-5) {Voice Processing\\Service};
+    \node[block, fill=SayNoteBlue!40] (auth) at (-4,-5) {Authentication\\Service};
+    \node[block, fill=SayNoteBlue!40] (notes) at (0,-5) {Notes\\Service};
+    \node[block, fill=SayNoteBlue!40] (voice) at (4,-5) {Voice Processing\\Service};
     
     % External Services
     \node[cloud] (gemini) at (4,-7) {Gemini API};
     
     % Database
-    \node[cylinder, draw, shape aspect=0.3, fill=voicenotionBlue!20] (db) at (0,-7) {Database};
+    \node[cylinder, draw, shape aspect=0.3, fill=SayNoteBlue!20] (db) at (0,-7) {Database};
     
     % Connections
     \draw[arrow] (mobile) -- (api);
@@ -49,7 +49,7 @@
     \node[text width=4cm, align=center, font=\footnotesize] at (-5,-7) {Data Layer};
     
     \end{tikzpicture}
-    \caption{VoiceNotion System Architecture}
+    \caption{SayNote System Architecture}
     \label{fig:system-architecture}
 \end{figure}
 
@@ -59,24 +59,24 @@
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        block/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionLightGray},
-        process/.style={rectangle, draw, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionLightGray},
-        decision/.style={diamond, draw, minimum width=2.5cm, minimum height=1.5cm, align=center, fill=voicenotionLightGray},
-        arrow/.style={->, >=stealth, thick, color=voicenotionBlue},
+        block/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=SayNoteLightGray},
+        process/.style={rectangle, draw, minimum width=2.5cm, minimum height=1cm, align=center, fill=SayNoteLightGray},
+        decision/.style={diamond, draw, minimum width=2.5cm, minimum height=1.5cm, align=center, fill=SayNoteLightGray},
+        arrow/.style={->, >=stealth, thick, color=SayNoteBlue},
         every node/.style={font=\small}
     ]
     
     % Flow steps
-    \node[block, fill=voicenotionBlue!10] (start) at (0,0) {User speaks\\command};
-    \node[process, fill=voicenotionBlue!20] (capture) at (0,-2) {Voice capture};
-    \node[process, fill=voicenotionBlue!30] (transcribe) at (0,-4) {Speech-to-text\\transcription};
-    \node[process, fill=voicenotionBlue!40] (intent) at (0,-6) {Intent parsing\\(Gemini API)};
-    \node[decision, fill=voicenotionBlue!30] (valid) at (0,-8.5) {Valid\\command?};
-    \node[process, fill=voicenotionBlue!20] (execute) at (0,-11) {Execute command\\in editor};
-    \node[block, fill=voicenotionBlue!10] (feedback) at (0,-13) {User feedback};
+    \node[block, fill=SayNoteBlue!10] (start) at (0,0) {User speaks\\command};
+    \node[process, fill=SayNoteBlue!20] (capture) at (0,-2) {Voice capture};
+    \node[process, fill=SayNoteBlue!30] (transcribe) at (0,-4) {Speech-to-text\\transcription};
+    \node[process, fill=SayNoteBlue!40] (intent) at (0,-6) {Intent parsing\\(Gemini API)};
+    \node[decision, fill=SayNoteBlue!30] (valid) at (0,-8.5) {Valid\\command?};
+    \node[process, fill=SayNoteBlue!20] (execute) at (0,-11) {Execute command\\in editor};
+    \node[block, fill=SayNoteBlue!10] (feedback) at (0,-13) {User feedback};
     
     % Error path
-    \node[process, fill=voicenotionGray!40] (error) at (4,-11) {Error handling\\and feedback};
+    \node[process, fill=SayNoteGray!40] (error) at (4,-11) {Error handling\\and feedback};
     
     % Connections
     \draw[arrow] (start) -- (capture);
@@ -89,7 +89,7 @@
     \draw[arrow] (error) -- (4,-13) -- (feedback);
     
     % Example JSON payload
-    \node[draw, rounded corners, text width=4.5cm, fill=voicenotionDarkGray, text=white, font=\ttfamily\footnotesize] (json) at (-5,-6) {
+    \node[draw, rounded corners, text width=4.5cm, fill=SayNoteDarkGray, text=white, font=\ttfamily\footnotesize] (json) at (-5,-6) {
         \{\\
         \ \ "intent": "FORMAT\_TEXT",\\
         \ \ "style": "bold",\\
@@ -111,15 +111,15 @@
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        entity/.style={rectangle, draw, rounded corners, minimum width=3cm, minimum height=1.8cm, align=center, fill=voicenotionLightGray},
-        relationship/.style={diamond, draw, minimum width=2cm, minimum height=1cm, align=center, fill=voicenotionBlue!20},
+        entity/.style={rectangle, draw, rounded corners, minimum width=3cm, minimum height=1.8cm, align=center, fill=SayNoteLightGray},
+        relationship/.style={diamond, draw, minimum width=2cm, minimum height=1cm, align=center, fill=SayNoteBlue!20},
         line/.style={-, thick},
         arrow/.style={->, >=stealth, thick},
         every node/.style={font=\small}
     ]
     
     % Entities
-    \node[entity, fill=voicenotionBlue!20] (user) at (0,0) {
+    \node[entity, fill=SayNoteBlue!20] (user) at (0,0) {
         \textbf{User}\\
         \rule{2.5cm}{0.5pt}\\
         id\\
@@ -128,7 +128,7 @@
         preferences
     };
     
-    \node[entity, fill=voicenotionBlue!20] (note) at (6,0) {
+    \node[entity, fill=SayNoteBlue!20] (note) at (6,0) {
         \textbf{Note}\\
         \rule{2.5cm}{0.5pt}\\
         id\\
@@ -137,7 +137,7 @@
         updated\_at
     };
     
-    \node[entity, fill=voicenotionBlue!20] (block) at (12,0) {
+    \node[entity, fill=SayNoteBlue!20] (block) at (12,0) {
         \textbf{Block}\\
         \rule{2.5cm}{0.5pt}\\
         id\\
@@ -146,7 +146,7 @@
         order
     };
     
-    \node[entity, fill=voicenotionBlue!20] (folder) at (0,-5) {
+    \node[entity, fill=SayNoteBlue!20] (folder) at (0,-5) {
         \textbf{Folder}\\
         \rule{2.5cm}{0.5pt}\\
         id\\
@@ -154,7 +154,7 @@
         created\_at
     };
     
-    \node[entity, fill=voicenotionBlue!20] (tag) at (6,-5) {
+    \node[entity, fill=SayNoteBlue!20] (tag) at (6,-5) {
         \textbf{Tag}\\
         \rule{2.5cm}{0.5pt}\\
         id\\
@@ -162,7 +162,7 @@
         color
     };
     
-    \node[entity, fill=voicenotionBlue!20] (template) at (12,-5) {
+    \node[entity, fill=SayNoteBlue!20] (template) at (12,-5) {
         \textbf{Template}\\
         \rule{2.5cm}{0.5pt}\\
         id\\
@@ -191,7 +191,7 @@
     \node[font=\tiny] at (2.5,-3.2) {N};
     
     \end{tikzpicture}
-    \caption{VoiceNotion Data Model}
+    \caption{SayNote Data Model}
     \label{fig:data-model}
 \end{figure}
 
@@ -201,18 +201,18 @@
 \begin{figure}[H]
     \centering
     \begin{tikzpicture}[
-        component/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionLightGray},
-        screen/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=voicenotionBlue!20},
-        arrow/.style={->, >=stealth, thick, color=voicenotionBlue},
+        component/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=SayNoteLightGray},
+        screen/.style={rectangle, draw, rounded corners, minimum width=2.5cm, minimum height=1cm, align=center, fill=SayNoteBlue!20},
+        arrow/.style={->, >=stealth, thick, color=SayNoteBlue},
         every node/.style={font=\small}
     ]
     
     % App Container
     \draw[rounded corners, thick, dashed] (-1,1) rectangle (14,-11);
-    \node[anchor=north west, font=\bfseries] at (-1,1) {VoiceNotion App};
+    \node[anchor=north west, font=\bfseries] at (-1,1) {SayNote App};
     
     % Navigation
-    \node[component, fill=voicenotionBlue!10, minimum width=12cm] (nav) at (6.5,0) {Bottom Tab Navigator};
+    \node[component, fill=SayNoteBlue!10, minimum width=12cm] (nav) at (6.5,0) {Bottom Tab Navigator};
     
     % Main Screens
     \node[screen] (editor) at (0,-2) {NoteEditorScreen};

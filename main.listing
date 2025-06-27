@@ -4,7 +4,7 @@
 {
   "expo": {
     "name": "VoiceNotion",
-    "slug": "voicenotion",
+    "slug": "VoiceNotion",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -17,14 +17,14 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.voicenotion.app"
+      "bundleIdentifier": "com.VoiceNotion.app"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.voicenotion.app"
+      "package": "com.VoiceNotion.app"
     },
     "plugins": [
       [

@@ -25,12 +25,12 @@ if [ ! -f "assets/docs/university_logo.png" ]; then
 fi
 
 # Create architecture diagram
-create_placeholder "voicenotion_architecture.png" "VoiceNotion Architecture Diagram" 1200 800
+create_placeholder "SayNote_architecture.png" "SayNote Architecture Diagram" 1200 800
 
 # Create design tool placeholders
-create_placeholder "figma_design_system.png" "VoiceNotion Design System in Figma" 1200 800
-create_placeholder "illustrator_assets.png" "VoiceNotion Visual Assets in Adobe Illustrator" 1200 800
-create_placeholder "supabase_dashboard.png" "Supabase Dashboard for VoiceNotion" 1200 800
+create_placeholder "figma_design_system.png" "SayNote Design System in Figma" 1200 800
+create_placeholder "illustrator_assets.png" "SayNote Visual Assets in Adobe Illustrator" 1200 800
+create_placeholder "supabase_dashboard.png" "Supabase Dashboard for SayNote" 1200 800
 
 # Create technology logos
 create_placeholder "logo_react.png" "React Logo" 200 200
@@ -60,26 +60,26 @@ create_placeholder "logo_prisma.png" "Prisma Logo" 200 200
 
 # Create placeholders for web interface screenshots
 create_placeholder "technologies-frontend.png" "Frontend Technologies (React, Next.js, TailwindCSS, BlockNote)" 800 400
-create_placeholder "web-landing-page.png" "VoiceNotion Landing Page" 1200 800
-create_placeholder "web-login-page.png" "VoiceNotion Login Page" 800 600
-create_placeholder "web-signup-page.png" "VoiceNotion Signup Page" 800 600
-create_placeholder "web-dashboard.png" "VoiceNotion Dashboard" 1200 800
-create_placeholder "web-editor.png" "VoiceNotion Note Editor" 1200 800
-create_placeholder "web-voice-commands.png" "VoiceNotion Voice Command Panel" 1000 600
-create_placeholder "web-settings.png" "VoiceNotion Settings Page" 1000 600
-create_placeholder "web-search.png" "VoiceNotion Search Function" 1000 600
+create_placeholder "web-landing-page.png" "SayNote Landing Page" 1200 800
+create_placeholder "web-login-page.png" "SayNote Login Page" 800 600
+create_placeholder "web-signup-page.png" "SayNote Signup Page" 800 600
+create_placeholder "web-dashboard.png" "SayNote Dashboard" 1200 800
+create_placeholder "web-editor.png" "SayNote Note Editor" 1200 800
+create_placeholder "web-voice-commands.png" "SayNote Voice Command Panel" 1000 600
+create_placeholder "web-settings.png" "SayNote Settings Page" 1000 600
+create_placeholder "web-search.png" "SayNote Search Function" 1000 600
 
 # Create placeholders for mobile interface screenshots
 create_placeholder "technologies-mobile.png" "Mobile Technologies (Expo, React Native)" 800 400
-create_placeholder "mobile-welcome.png" "VoiceNotion Mobile Welcome Screen" 400 800
-create_placeholder "mobile-login.png" "VoiceNotion Mobile Login Screen" 400 800
-create_placeholder "mobile-signup.png" "VoiceNotion Mobile Signup Screen" 400 800
-create_placeholder "mobile-home.png" "VoiceNotion Mobile Home Screen" 400 800
-create_placeholder "mobile-editor.png" "VoiceNotion Mobile Editor" 400 800
-create_placeholder "mobile-voice-input.png" "VoiceNotion Mobile Voice Input" 400 800
-create_placeholder "mobile-search.png" "VoiceNotion Mobile Search" 400 800
-create_placeholder "mobile-profile.png" "VoiceNotion Mobile Profile" 400 800
-create_placeholder "mobile-appointments.png" "VoiceNotion Mobile Appointments" 400 800
+create_placeholder "mobile-welcome.png" "SayNote Mobile Welcome Screen" 400 800
+create_placeholder "mobile-login.png" "SayNote Mobile Login Screen" 400 800
+create_placeholder "mobile-signup.png" "SayNote Mobile Signup Screen" 400 800
+create_placeholder "mobile-home.png" "SayNote Mobile Home Screen" 400 800
+create_placeholder "mobile-editor.png" "SayNote Mobile Editor" 400 800
+create_placeholder "mobile-voice-input.png" "SayNote Mobile Voice Input" 400 800
+create_placeholder "mobile-search.png" "SayNote Mobile Search" 400 800
+create_placeholder "mobile-profile.png" "SayNote Mobile Profile" 400 800
+create_placeholder "mobile-appointments.png" "SayNote Mobile Appointments" 400 800
 
 # Create placeholders for diagrams
 create_placeholder "gemini-api-diagram.png" "Gemini API Integration Diagram" 1000 600

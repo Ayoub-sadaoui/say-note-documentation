@@ -1,5 +1,5 @@
 % ===============================
-% VoiceNotion Documentation (Supervisor-Compliant Structure)
+% SayNote Documentation (Supervisor-Compliant Structure)
 % ===============================
 \documentclass[12pt,a4paper]{report}
 
@@ -27,7 +27,7 @@
 \usepackage{tikz}
 \usepackage{listings}
 \usepackage{caption}
-\definecolor{voicenotionLightGray}{RGB}{240,240,240}
+\definecolor{SayNoteLightGray}{RGB}{240,240,240}
 % Dark background color for code snippets
 \definecolor{codebg}{RGB}{30,30,30}
 % Global style for all listings
@@ -67,10 +67,14 @@
     backgroundcolor=\color{codebg}
   }
 }
+% Configure table of contents depth and numbering
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
 \geometry{margin=2.5cm}
 
 % --- Title ---
-\title{VoiceNotion: Documentation}
+\title{SayNote: Documentation}
 \author{BENBOUZID Rima, DOUMAZ Imene}
 \date{\today}
 
@@ -138,7 +142,7 @@
             \begin{minipage}{13cm}
                 \begin{center}
                     \vspace{-0.5cm}
-                    \fontsize{22}{26}\selectfont \textbf{VoiceNotion} \\
+                    \fontsize{22}{26}\selectfont \textbf{SayNote} \\
                     \fontsize{22}{26}\selectfont \textbf{AI-Based Voice Productivity SaaS Application}
                 \end{center}
             \end{minipage}
@@ -157,8 +161,9 @@
     {\normalsize Soutenu le \underline{24/06/2024} Devant le jury composé de} \\
     \vspace{0.4cm}
     \begin{tabular}{lll}
-        SIACI Redouane & : & Examinateur \\
-        HAMMICHE Mokhtar & : & Président \\
+        HAMICHE Mokhtar & : & Examinateur \\
+        BELKASMI Djamel & : & Examinateur \\
+        YAHIATENE Youcef & : & Président \\
     \end{tabular}
 \end{center}
 \end{titlepage}
@@ -176,7 +181,7 @@
 % --- General Introduction ---
 \chapter*{Introduction générale}
 \addcontentsline{toc}{chapter}{Introduction générale}
-\input{voicenotion_introduction}
+\input{saynote_introduction}
 
 % ===============================
 % PART I (unnamed): State of the Art
@@ -190,11 +195,11 @@
 \thispagestyle{empty}
 
 \chapter{Étude de l'existant}
-\input{voicenotion_etude_prealable}
+\input{saynote_etude_prealable}
 
 % --- Chapter 2: Description of the proposed solution ---
 \chapter{Description de la solution proposée}
-\input{voicenotion_solution}
+\input{saynote_solution}
 
 % ===============================
 % PART II (unnamed): Contribution
@@ -213,7 +218,7 @@
 
 % --- Chapter 2: Implementation ---
 \chapter{Implémentation}
-\input{voicenotion_implementation}
+\input{saynote_implementation}
 
 % --- General Conclusion ---
 \section*{Conclusion générale}

@@ -40,7 +40,7 @@
   <!-- React Native Mobile App -->
   <rect x="50" y="100" width="240" height="150" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1" filter="url(#shadow)"/>
   <text x="170" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1F2937">REACT NATIVE APP</text>
-  <text x="170" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">SayNote Mobile (iOS/Android)</text>
+  <text x="170" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">VoiceNotion Mobile (iOS/Android)</text>
   
   <!-- React Native Logo -->
   <g transform="translate(90, 150)">
@@ -80,7 +80,7 @@
   <!-- Next.js Web App -->
   <rect x="50" y="270" width="240" height="150" rx="8" fill="white" stroke="#D1D5DB" stroke-width="1" filter="url(#shadow)"/>
   <text x="170" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1F2937">NEXT.JS WEB APP</text>
-  <text x="170" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">SayNote Web Platform</text>
+  <text x="170" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6B7280">VoiceNotion Web Platform</text>
   
   <!-- Real Next.js Logo -->
   <g transform="translate(90, 320)">
@@ -254,6 +254,6 @@
   <text x="605" y="534" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="white">API</text>
   
   <!-- Title -->
-  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1F2937">SayNote Architecture</text>
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1F2937">VoiceNotion Architecture</text>
   <text x="600" y="48" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#6B7280">Voice-First Note-Taking Platform with Enhanced AI</text>
 </svg>

@@ -1,14 +1,14 @@
-# Makefile for VoiceNotion LaTeX Documentation (Windows Compatible)
+# Makefile for SayNote LaTeX Documentation (cross-platform)
 
 # Default target
 all: pdf
 
 # Variables
 MAIN = main
-DIAGRAMS = voicenotion_diagrams
-COMMANDS = voicenotion_commands
-TOC_STRUCTURE = voicenotion_toc_structure
-INTRODUCTION = voicenotion_introduction
+DIAGRAMS = SayNote_diagrams
+COMMANDS = SayNote_commands
+TOC_STRUCTURE = SayNote_toc_structure
+INTRODUCTION = SayNote_introduction
 OUTPUT_DIR = output
 ASSETS_DIR = assets/docs
 LATEX = pdflatex
@@ -16,16 +16,15 @@ LATEX_OPTS = -output-directory=$(OUTPUT_DIR)
 
 # Create output directory if it doesn't exist
 $(OUTPUT_DIR):
-	@if not exist "$(OUTPUT_DIR)" mkdir "$(OUTPUT_DIR)"
+	@mkdir -p $(OUTPUT_DIR)
 
 # Copy placeholder logo if needed
-placeholder: $(ASSETS_DIR)
-	@if not exist "$(ASSETS_DIR)\university_logo.png" echo "Warning: University logo not found. Placeholder creation skipped."
+placeholder:
+	@[ -f $(ASSETS_DIR)/university_logo.png ] || echo "Warning: University logo not found. Placeholder creation skipped."
 
 # Check for required files
 check-files:
-	@if not exist "$(MAIN).tex" (echo Missing required file: $(MAIN).tex & exit /b 1)
-	@if not exist "$(INTRODUCTION).tex" (echo Missing required file: $(INTRODUCTION).tex & exit /b 1)
+	@[ -f $(MAIN).tex ] || { echo "Missing required file: $(MAIN).tex"; exit 1; }
 
 # Compile PDF
 pdf: $(OUTPUT_DIR) placeholder check-files
@@ -35,20 +34,15 @@ pdf: $(OUTPUT_DIR) placeholder check-files
 
 # View the PDF (if available)
 view: pdf
-	@if exist "$(OUTPUT_DIR)\$(MAIN).pdf" ( \
-		echo "Opening PDF..." & \
-		start "" "$(OUTPUT_DIR)\$(MAIN).pdf" \
-	) else ( \
-		echo "PDF not found. Run 'make pdf' first." \
-	)
+	@open $(OUTPUT_DIR)/$(MAIN).pdf
 
 # Clean up auxiliary files but keep PDF
 clean:
-	@-del /Q "$(OUTPUT_DIR)\*.aux" "$(OUTPUT_DIR)\*.log" "$(OUTPUT_DIR)\*.toc" "$(OUTPUT_DIR)\*.lof" "$(OUTPUT_DIR)\*.lot" "$(OUTPUT_DIR)\*.out" 2>nul
+	@rm -f $(OUTPUT_DIR)/*.aux $(OUTPUT_DIR)/*.log $(OUTPUT_DIR)/*.toc $(OUTPUT_DIR)/*.lof $(OUTPUT_DIR)/*.lot $(OUTPUT_DIR)/*.out
 
 # Clean everything including PDF
 distclean: clean
-	@-del /Q "$(OUTPUT_DIR)\*.pdf" 2>nul
+	@rm -f $(OUTPUT_DIR)/*.pdf
 
 # Help target
 help:

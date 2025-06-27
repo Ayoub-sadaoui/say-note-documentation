@@ -1,14 +1,14 @@
-# VoiceNotion LaTeX Documentation Template
+# SayNote LaTeX Documentation Template
 
-This directory contains a comprehensive LaTeX template for creating technical documentation for the VoiceNotion application. The template is designed to provide a professional, academic-style document that can be used for various purposes, including technical specifications, user manuals, and project documentation.
+This directory contains a comprehensive LaTeX template for creating technical documentation for the SayNote application. The template is designed to provide a professional, academic-style document that can be used for various purposes, including technical specifications, user manuals, and project documentation.
 
 ## Contents
 
-- `voicenotion_template.tex` - Main LaTeX document
-- `voicenotion_commands.tex` - List of voice commands for inclusion in the main document
-- `voicenotion_diagrams.tex` - TikZ diagrams for architecture and workflows
-- `voicenotion_toc_structure.tex` - Detailed table of contents structure
-- `voicenotion_introduction.tex` - Introduction chapter content
+- `SayNote_template.tex` - Main LaTeX document
+- `SayNote_commands.tex` - List of voice commands for inclusion in the main document
+- `SayNote_diagrams.tex` - TikZ diagrams for architecture and workflows
+- `SayNote_toc_structure.tex` - Detailed table of contents structure
+- `SayNote_introduction.tex` - Introduction chapter content
 - `Makefile` - Automation script for compiling the document
 - `LATEX_TEMPLATE_README.md` - This file
 - `UNIVERSITY_COVER_README.md` - Instructions for the university-style cover page
@@ -36,7 +36,7 @@ The template features a comprehensive, multi-level table of contents similar to 
 - Subsubsection entries for detailed organization
 - Automatic page numbering and reference updating
 
-The structure is defined in `voicenotion_toc_structure.tex`, which you can modify to match your specific documentation needs.
+The structure is defined in `SayNote_toc_structure.tex`, which you can modify to match your specific documentation needs.
 
 ## Prerequisites
 
@@ -103,39 +103,39 @@ If you prefer to compile manually:
 mkdir -p output
 
 # Compile the document (run multiple times for references)
-pdflatex -interaction=nonstopmode -output-directory=output voicenotion_template.tex
-pdflatex -interaction=nonstopmode -output-directory=output voicenotion_template.tex
-pdflatex -interaction=nonstopmode -output-directory=output voicenotion_template.tex
+pdflatex -interaction=nonstopmode -output-directory=output SayNote_template.tex
+pdflatex -interaction=nonstopmode -output-directory=output SayNote_template.tex
+pdflatex -interaction=nonstopmode -output-directory=output SayNote_template.tex
 ```
 
 ## Customizing the Template
 
 ### Adding Your Content
 
-1. Edit `voicenotion_template.tex` to replace placeholder content with your actual content.
-2. Modify `voicenotion_toc_structure.tex` to match your specific document structure.
+1. Edit `SayNote_template.tex` to replace placeholder content with your actual content.
+2. Modify `SayNote_toc_structure.tex` to match your specific document structure.
 3. Update or add sections as needed to match your documentation requirements.
 4. Replace placeholder images with actual screenshots and diagrams.
 5. Customize the cover page with your project details and university information.
 
 ### Creating Detailed Content
 
-For each major section of the document, you can create separate .tex files (similar to `voicenotion_introduction.tex`):
+For each major section of the document, you can create separate .tex files (similar to `SayNote_introduction.tex`):
 
-1. Create a file for each chapter (e.g., `voicenotion_chapter1.tex`)
+1. Create a file for each chapter (e.g., `SayNote_chapter1.tex`)
 2. Add your content using the proper LaTeX formatting
 3. Include these files in the main template using `\input{filename}`
 
 ### Modifying the Appearance
 
-- Colors: The template defines VoiceNotion brand colors at the beginning of the main file. You can adjust these to match your brand guidelines.
+- Colors: The template defines SayNote brand colors at the beginning of the main file. You can adjust these to match your brand guidelines.
 - Fonts: The template uses standard LaTeX fonts. You can modify these by adding font packages.
 - Layout: Page margins and spacing can be adjusted in the `\geometry` settings.
 - Table of Contents: Formatting of the TOC can be adjusted using the `tocloft` package settings.
 
 ### Adding Diagrams and Figures
 
-The `voicenotion_diagrams.tex` file contains TikZ code for various diagrams. You can:
+The `SayNote_diagrams.tex` file contains TikZ code for various diagrams. You can:
 
 1. Modify existing diagrams to reflect your actual architecture and workflows.
 2. Add new diagrams using the same styling for consistency.
@@ -152,8 +152,8 @@ The `voicenotion_diagrams.tex` file contains TikZ code for various diagrams. You
 
 ## License
 
-This template is provided for the exclusive use of the VoiceNotion project.
+This template is provided for the exclusive use of the SayNote project.
 
 ## Support
 
-For questions or issues with the template, please contact the VoiceNotion development team.
+For questions or issues with the template, please contact the SayNote development team.

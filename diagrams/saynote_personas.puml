@@ -1,4 +1,4 @@
-@startuml VoiceNotion Personas
+@startuml SayNote Personas
 !theme plain
 skinparam backgroundColor white
 skinparam dpi 300
@@ -7,7 +7,7 @@ skinparam shadowing false
 skinparam RectangleBackgroundColor #f5f5f5
 skinparam RectangleBorderColor #999999
 
-title Personas Utilisateurs VoiceNotion
+title Personas Utilisateurs SayNote
 
 ' Define the personas
 rectangle "Sophie\nL'Étudiante" as sophie #lightblue {
@@ -66,15 +66,15 @@ rectangle "Leila\nLa Créatrice de Contenu" as leila #lightsalmon {
 
 ' Add notes
 note bottom of sophie
-  <b>VoiceNotion Solution</b>: Capture rapide en cours + structuration facile pour ses révisions
+  <b>SayNote Solution</b>: Capture rapide en cours + structuration facile pour ses révisions
 end note
 
 note bottom of marc
-  <b>VoiceNotion Solution</b>: Notes en déplacement + partage simplifié avec son équipe
+  <b>SayNote Solution</b>: Notes en déplacement + partage simplifié avec son équipe
 end note
 
 note bottom of leila
-  <b>VoiceNotion Solution</b>: Capture d'idées instantanée + organisation flexible du contenu
+  <b>SayNote Solution</b>: Capture d'idées instantanée + organisation flexible du contenu
 end note
 
 @enduml 
